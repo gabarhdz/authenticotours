@@ -23,14 +23,16 @@ class CommentCharacteristics(models.Model):
         return self.characteristic_name
 
 class Comment(models.Model):
-    profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
-    tour = models.ForeignKey(Tour,on_delete=models.CASCADE,default=1)
-    characteristics = models.ForeignKey(CommentCharacteristics,on_delete=models.DO_NOTHING,null=True)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, default=1)
+    characteristics = models.ManyToManyField(CommentCharacteristics, blank=True)  # Ahora puede tener varias
     date = models.DateField(default=now)
     comment_text = models.TextField(max_length=1200)
     calification = models.IntegerField(default=1)
+
     def __str__(self):
-        return self.comment 
+        return self.comment_text
+
 
 class Reply(models.Model):
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
