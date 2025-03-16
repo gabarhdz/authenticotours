@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,10 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'rest_framework',
     'rest_framework.authtoken',
     'app',
 ]
+
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),  # Access Token dura 1 hora
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),  # Refresh Token dura 7 días
+    "ROTATE_REFRESH_TOKENS": True,  # Renueva el refresh token al usarlo
+    "BLACKLIST_AFTER_ROTATION": True,  # Invalida el refresh token anterior
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": SECRET_KEY,  # Usa la SECRET_KEY de Django
+    "AUTH_HEADER_TYPES": ("Bearer",),  # El token debe enviarse como "Bearer <TOKEN>"
+    "USER_ID_FIELD": "id",
+    "USER_ID_CLAIM": "user_id",
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -107,11 +123,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-    ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # 👈 Si usas JWT
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',  # 👈 Prueba cambiando esto a AllowAny temporalmente
     ],
 }
 
@@ -121,7 +138,7 @@ REST_FRAMEWORK = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC-6'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -137,3 +154,30 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+import logging
+
+logger = logging.getLogger('django')
+
+MIDDLEWARE += [
+    'django.middleware.common.CommonMiddleware',
+]
+
+# Activa el logging de requests
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'django_requests.log',
+        },
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
