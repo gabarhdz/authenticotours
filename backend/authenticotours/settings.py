@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.storage import CloudinaryStorage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -61,6 +65,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "dbp9sst6j",
+    "API_KEY": "345676463386429",
+    "API_SECRET": "FSdfA2NEnqDKDwwaLC0co2vQFUo",
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
 ROOT_URLCONF = 'authenticotours.urls'
 
 TEMPLATES = [
@@ -86,11 +98,15 @@ WSGI_APPLICATION = 'authenticotours.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'authenticotours',
+            'USER': 'gabarhdz',
+            'PASSWORD': 'starwars2007$',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
     }
-}
 
 
 # Password validation
