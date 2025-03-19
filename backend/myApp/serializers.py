@@ -5,40 +5,40 @@ from .models import *
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email']
+        fields = '__all__'
 
 class MediaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Media
-        field = ['id','url','alt']
+        fields = '__all__'
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
     class Meta:
         model = Profile
-        fields = ['id','user','profile_pic']
+        fields = '__all__'
 
 class IncludesSerializer(serializers.ModelSerializer):  
     class Meta:
         model = Includes
-        field = ['id','name']
+        fields = '__all__'
 
 class TourSerializer(serializers.ModelSerializer):
-    photos = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    includes = serializers.PrimaryKeyRelatedField(many=True,read_only=True)
+    photos = MediaSerializer(many=True, read_only=True)
+    includes = IncludesSerializer(many=True,read_only=True)
     class Meta:
         model =Tour
-        fields = ['id','name','description','duration','photos','includes','min_people']
+        fields = '__all__'
 
 class CharacteristicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Characterisitcs
-        field = ['id','name']
+        fields = '__all__'
 
 class CommentSerializer(serializers.ModelSerializer):
-    user = serializers.PrimaryKeyRelatedField(Profile.objects.all())
-    photos = serializers.PrimaryKeyRelatedField(many=True,read_only=True)
-    characteristics = serializers.PrimaryKeyRelatedField(many=True,read_only=True)
+    #user = serializers.PrimaryKeyRelatedField(Profile.objects.all())
+    photos = MediaSerializer(many=True,read_only=True)
+    characteristics = CharacteristicSerializer(many=True,read_only=True)
     class Meta:
         model = Characterisitcs
-        field = ['id','user','photos','title','text','calification','characteristics']
+        fields = '__all__'
