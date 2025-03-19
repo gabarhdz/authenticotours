@@ -21,12 +21,19 @@ class Includes(models.Model):
     def __str__(self):
         return self.name
 
+class Recommendations(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 
 class Tour(models.Model):
     tour_name = models.CharField(max_length=100,null=False,blank=False)
     tour_description = models.TextField(max_length=800,blank=False, null=False)
+    detailed_description = models.TextField(max_length=9800,default=" ")
     duration = models.IntegerField(null=False,blank=False)
-    includes = models.ManyToManyField(Includes,null=True,blank=True)
+    includes = models.ManyToManyField(Includes,null=True)
+    itinereray = models.TextField(max_length=4500,blank=False, default=" ")
+    recommendations = models.ManyToManyField(Recommendations,null=False,blank=False)
     min_people = models.IntegerField(null=False,blank=False)
     photos = models.ManyToManyField(Media)
 
