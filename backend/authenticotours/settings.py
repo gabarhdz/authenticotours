@@ -11,10 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-"""import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-from cloudinary.storage import CloudinaryStorage"""
+from datetime import datetime, timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,25 +53,21 @@ REST_FRAMEWORK = {
     ],
 }
 
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=30),  # Token de acceso dura 30 días
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=365),  # Token de actualización dura 1 año
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-"""CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": "dbp9sst6j",
-    "API_KEY": "345676463386429",
-    "API_SECRET": "FSdfA2NEnqDKDwwaLC0co2vQFUo",
-}
 
-DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-"""
 ROOT_URLCONF = 'authenticotours.urls'
 
 TEMPLATES = [
