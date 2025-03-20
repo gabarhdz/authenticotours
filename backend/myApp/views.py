@@ -18,4 +18,10 @@ class get_specific_tours(APIView):
             serializer = TourSerializer(tours)
             return JsonResponse(serializer.data,safe=False)
         except:
-            return Response({"error": "Tour no encontrado"}, status=404)
+            return JsonResponse({"error": "Tour no encontrado"}, status=404)
+        
+class get_general_comments(APIView):
+    def get(self,request):
+        comments = Comments.objects.all()
+        serializer = CommentSerializer(comments,many=True)
+        return JsonResponse(serializer.data, safe=False)

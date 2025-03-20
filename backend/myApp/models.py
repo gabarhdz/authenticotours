@@ -43,11 +43,11 @@ class Tour(models.Model):
 class Characterisitcs(models.Model):
     name = models.CharField(max_length=40)
     def __str__(self):
-        return super().__str__()
+        return self.name
 
 
 class Comments(models.Model):
-    user = models.ForeignKey(Profile,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     tour = models.ForeignKey(Tour,on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     text=models.TextField(max_length=600)

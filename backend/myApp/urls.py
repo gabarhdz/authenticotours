@@ -3,5 +3,6 @@ from .views import *
 
 urlpatterns = [
     path('tours/', get_tours.as_view(),name="get_all_tours"),
-    path('tours/<str:tour_name>/',get_specific_tours.as_view(), name="get_a_specific_tour")
+    path('tours/<str:tour_name>/',get_specific_tours.as_view(), name="get_a_specific_tour"),
+    path('comments/',get_general_comments.as_view(),name="get_all_comments")
 ]
