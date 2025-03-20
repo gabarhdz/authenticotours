@@ -9,12 +9,14 @@ from .models import *
 from .serializers import *
 # Create your views here.
 class get_tours(APIView):
+    permission_classes = [] 
     def get(self,request):
         tours = Tour.objects.all()
         serializer = TourSerializer(tours,many=True)
         return JsonResponse(serializer.data,safe=False)
 
 class get_specific_tours(APIView):
+    permission_classes = []
     def get(self,request,tour_name):
         try:
             tours = Tour.objects.get(tour_name=tour_name)
