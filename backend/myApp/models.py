@@ -9,11 +9,15 @@ class Media(models.Model):
         return self.ALT
 
 
+def user_directory_path(instance, filename):
+    return f'./profile_pics/{instance.user.username}/{filename}'
+
 class Profile(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
-    profile_pic = models.OneToOneField(Media, on_delete=models.SET_NULL, null=True, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.FileField(max_length=250, null=True, blank=True, upload_to=user_directory_path)
+
     def __str__(self):
-        return super().__str__()
+        return self.user.username
 
 
 class Includes(models.Model):
