@@ -1,0 +1,129 @@
+.tour-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  height: 500px;
+  margin: 20px 10px 20px auto;
+  padding: 20px;
+  gap: 20px;
+}
+
+.tour-image {
+    max-width: 40%;
+
+}
+
+.tour-info {
+  flex-direction: column;
+  max-width: 90%;
+  text-align: left; 
+}
+
+.tour-title {
+  font-size: 2.5rem; 
+  margin-bottom: 10px;
+}
+
+.tour-duration {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.tour-stars {
+  font-size: 1.5rem;
+  color: gold;
+  margin-bottom: 15px; 
+}
+
+.tour-description {
+  font-size: 1.2rem; 
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+
+}
+
+.tour-booking {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  gap: 10px;
+}
+
+.tour-price {
+  font-size: 1.8rem; 
+  font-weight: bold;
+  color: #333;
+}
+
+.tour-price span {
+  color: #007bff;
+  font-size: 2rem; 
+}
+
+.tour-booking button {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25D366;
+  color: white;
+  font-size: 0.9rem; 
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.tour-booking button:hover {
+  background-color: #1da851;
+}
+
+/* 📱 Ajustes responsive */
+@media (max-width: 1024px) {
+  .tour-container {
+    padding: 15px;
+  }
+
+  .tour-image {
+    max-width: 70%; 
+  }
+
+  .tour-info {
+    max-width: 90%;
+  }
+
+  .tour-description {
+    font-size: 1.1rem; 
+  }
+
+  .tour-booking button {
+    width: 100%; 
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-title {
+    font-size: 2rem;
+  }
+
+  .tour-price {
+    font-size: 1.4rem;
+  }
+
+  .tour-stars {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tour-booking button {
+    padding: 10px;
+  }
+}
