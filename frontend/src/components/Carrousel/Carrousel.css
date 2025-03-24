@@ -1,27 +1,20 @@
 .carousel-container {
     width: 100%;
-    max-width: 700px; 
-    margin: 0;
-    position: absolute;
-    right: 100px; 
-    top: 50%; 
-    transform: translateY(-50%); 
+    max-width: 600px;
+    margin: 120px 120px 20px auto; /* Empuja el carrusel hacia la derecha */
+    position: relative;
     overflow: hidden;
-    z-index: 1; 
     border-radius: 15px;
+    z-index: 0; /* Se asegurará de no superponerse */
 }
 
-.carousel-slide {
-    display: flex;
-    justify-content: center;
-}
-
+/* Asegurar que las imágenes sean responsivas */
 .carousel-slide img {
-    width: 700px; 
-    height: 450px; 
+    width: 100%;
+    height: 350px;
+    max-height: 450px;
     object-fit: cover;
 }
-
 
 /* Estilo de la paginación */
 .swiper-pagination-bullet {
@@ -30,7 +23,7 @@
 }
 
 .swiper-pagination-bullet-active {
-    background: #000000;
+    background: #000;
 }
 
 /* Estilo para las flechas */
@@ -40,20 +33,11 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 2;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
-.swiper-button-next {
-    right: 10px; 
-}
-
-.swiper-button-prev {
-    left: 10px; 
-}
-
 
 .carousel-container:hover .swiper-button-next,
 .carousel-container:hover .swiper-button-prev {
@@ -61,33 +45,28 @@
     visibility: visible;
 }
 
-/* Ajustes responsive para pantallas pequeñas */
+/* 📱 Ajustes responsive */
+@media (max-width: 1024px) {
+    .carousel-container {
+        max-width: 80%;
+        margin: 20px auto; /* Centrar en tablets */
+    }
+}
+
 @media (max-width: 768px) {
     .carousel-container {
-        max-width: 100%; 
-        top: 80px; 
-        transform: none; 
-        left: 0;
-        right: 0;
-        bottom: 0;
+        max-width: 90%;
+        margin: 10px auto;
     }
 
     .carousel-slide img {
-        width: 500px; 
-        height: 350px; 
-        object-fit: cover; 
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        font-size: 30px; 
-        opacity: 0.8; 
+        max-height: 350px;
     }
 }
 
 @media (max-width: 480px) {
     .swiper-button-next,
     .swiper-button-prev {
-        font-size: 25px; 
+        font-size: 20px;
     }
 }

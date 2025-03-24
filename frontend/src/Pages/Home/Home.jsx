@@ -1,12 +1,16 @@
 import React from 'react'
 import Header from '../../components/Header/Header'
-import Carousel from '../../components/Carrousel/Carrousel'
+import Carrousel from '../../components/Carrousel/Carrousel'
+import TourContainer from '../../components/TourContainer/TourContainer'
 
 const Home = () => {
   return (
     <>
-    <Header />
-    <Carousel/>
+    <Header/>
+    <Carrousel/>
+    <TourContainer/>
+    <TourContainer/>
+    <TourContainer/>
     </>
   )
 }
