@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from datetime import datetime, timedelta
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,17 +94,22 @@ WSGI_APPLICATION = 'authenticotours.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'authenticotours',
-            'USER': 'gabarhdz',
-            'PASSWORD': 'starwars2007$',
-            'HOST': 'localhost',
-            'PORT': '3306',
-        }
-    }
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
 
+# Elegir qué base de datos usar: LOCAL o AIVEN
+USE_AIVEN = os.getenv('USE_AIVEN', 'False') == 'False'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('AIVEN_DB_NAME') if USE_AIVEN else os.getenv('DB_NAME'),
+        'USER': os.getenv('AIVEN_DB_USER') if USE_AIVEN else os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('AIVEN_DB_PASSWORD') if USE_AIVEN else os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('AIVEN_DB_HOST') if USE_AIVEN else os.getenv('DB_HOST'),
+        'PORT': os.getenv('AIVEN_DB_PORT') if USE_AIVEN else os.getenv('DB_PORT'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
