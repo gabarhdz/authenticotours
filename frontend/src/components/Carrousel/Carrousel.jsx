@@ -9,9 +9,10 @@ import atvImage from '../imagenes/atv.jpg';
 import fishingImage from '../imagenes/fishing 1.jpg';
 import waterfallImage from '../imagenes/water fall 11.jpg';
 
-const images = [atvImage, fishingImage, waterfallImage];
+const imagesc = [atvImage, fishingImage, waterfallImage];
 
-const Carrousel = () => {
+
+const Carrousel = ({images=imagesc}) => {
   return (
     <div className="carousel-container right-aligned">
       <Swiper
