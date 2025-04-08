@@ -19,6 +19,7 @@ const Carrousel = ({images=imagesc}) => {
         modules={[Pagination, Navigation]}
         spaceBetween={10}
         slidesPerView={1}
+        loop={true}
         pagination={{ clickable: true }}
         navigation
       >
