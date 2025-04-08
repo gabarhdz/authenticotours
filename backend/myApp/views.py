@@ -123,3 +123,13 @@ class UpdateProfilePicture(APIView):
             return JsonResponse({"error": "El usuario no tiene perfil"}, status=404)
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
+        
+
+class get_media(APIView):
+    permission_classes = [] 
+    def get(self,request,ALT):
+        media = Media.objects.filter(ALT=ALT)
+        if not media.exists():
+            return JsonResponse({"error": "No media found for the given alt"}, status=404)
+        serializer = MediaSerializer(media,many=True)
+        return JsonResponse(serializer.data,safe=False)
