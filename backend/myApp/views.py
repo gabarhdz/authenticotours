@@ -126,6 +126,7 @@ class UpdateProfilePicture(APIView):
         
 
 class get_media(APIView):
+    http_method_names = ["get"]
     permission_classes = [] 
     def get(self,request,ALT):
         media = Media.objects.filter(ALT=ALT)
