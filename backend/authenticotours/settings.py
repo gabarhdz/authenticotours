@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'authenticotours.wsgi.application'
 load_dotenv()
 
 # Elegir qué base de datos usar: LOCAL o AIVEN
-USE_AIVEN = os.getenv('USE_AIVEN', 'False') == 'False'
+USE_AIVEN = os.getenv('USE_AIVEN', 'False') == 'True'
 
 DATABASES = {
     'default': {
@@ -115,6 +115,9 @@ DATABASES = {
         'PASSWORD': os.getenv('AIVEN_DB_PASSWORD') if USE_AIVEN else os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('AIVEN_DB_HOST') if USE_AIVEN else os.getenv('DB_HOST'),
         'PORT': os.getenv('AIVEN_DB_PORT') if USE_AIVEN else os.getenv('DB_PORT'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
