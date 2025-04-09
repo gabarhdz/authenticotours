@@ -1,0 +1,28 @@
+.comment-container img{
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.comment-container {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px;
+    padding: 10px;
+    gap: 10px; 
+}
+
+.comment-container span {
+    display: inline-block; 
+}
+
+
+.comment-title{
+    display: flex;
+}
+
+.comment-title > *
+{
+    display: inline-block; 
+}
