@@ -45,21 +45,28 @@ class get_specific_comments(APIView):
 
 
 
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+
 class PostComment(APIView):
     http_method_names = ["post"]
+    permission_classes = [IsAuthenticated]  # Asegura que el usuario esté autenticado
 
     def post(self, request, *args, **kwargs):
         try:
             data = request.data
 
-            # Intentar obtener el Tour por nombre (tour_name)
-            try:
-                tour = get_object_or_404(Tour, tour_name=data['tour_name'])  # Aquí buscamos por nombre
-            except:
-                return JsonResponse({"error": f"No Tour matches the given name: {data['tour_name']}"}, status=400)
+            # Verificar que se incluya el campo 'characteristics'
+            if "characteristics" not in data or not isinstance(data["characteristics"], list) or len(data["characteristics"]) == 0:
+                return JsonResponse({"error": "El campo 'characteristics' es requerido y debe ser una lista con al menos un ID."}, status=400)
 
-            # Buscar el usuario
-            user = get_object_or_404(User, id=data['user'])
+            # Intentar obtener el Tour por nombre
+            tour = get_object_or_404(Tour, tour_name=data['tour_name'])
+
+            # Obtener el usuario automáticamente a partir del request
+            user = request.user
 
             # Crear comentario
             comment = Comments.objects.create(
@@ -70,8 +77,11 @@ class PostComment(APIView):
                 calification=data["calification"]
             )
 
-            # Agregar características
-            characteristics_to_add = Characterisitcs.objects.filter(name__in=data.get("characterisitcs", []))
+            # Agregar características por IDs
+            characteristics_to_add = Characterisitcs.objects.filter(id__in=data["characteristics"])
+            if characteristics_to_add.count() != len(data["characteristics"]):
+                return JsonResponse({"error": "Una o más characteristics IDs no son válidos."}, status=400)
+
             comment.characterisitcs.set(characteristics_to_add)
 
             return JsonResponse({"message": "Comentario agregado exitosamente"}, status=201)
