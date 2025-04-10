@@ -16,7 +16,9 @@ const Comments = ({profile_pic,title,text,author,characteristics,rating}) => {
             <StarRating stars={rating}/>
             <span className='characteristics'>
               {characteristics.map((characteristic, index) => (
-                <CommentCard key={index} name={characteristic.name} />
+                <div>
+                  <CommentCard key={index} name={characteristic.name} />
+                </div>
               ))}
             </span>
             <br />
