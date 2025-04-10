@@ -11,6 +11,7 @@
     margin-bottom: 20px;
     padding: 10px;
     gap: 10px; 
+    min-width: 500px;
 }
 
 .comment-container span {
@@ -26,3 +27,4 @@
 {
     display: inline-block; 
 }
+

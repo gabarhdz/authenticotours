@@ -35,7 +35,7 @@ const Home = () => {
     <TourContainer/>
     <TourContainer/>
     <TourContainer/>
-    <CommentsContainer/>
+    <CommentsContainer tour={'index'}/>
     </>
   )
 }
