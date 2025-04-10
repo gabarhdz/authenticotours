@@ -36,7 +36,7 @@ const CommentsContainer = ({tour}) => {
         key={index} 
         title={comment.title} 
         text={comment.text} 
-        profile_pic={''} 
+        profile_pic={`http://127.0.0.1:8000/${comment.user.profile.profile_pic}`} 
         author={comment.user.username} 
         characteristics={comment.characterisitcs}
         rating={comment.calification}

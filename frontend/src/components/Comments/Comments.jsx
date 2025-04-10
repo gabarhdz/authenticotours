@@ -8,7 +8,7 @@ const Comments = ({profile_pic,title,text,author,characteristics,rating}) => {
   return (
     <span className='comment-container'>
        <span>
-        <img src={userPhoto} alt="" />
+        <img src={profile_pic} alt="" />
        </span>
        <span>
         <span className='comment-title'>
