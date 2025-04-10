@@ -58,10 +58,6 @@ class PostComment(APIView):
         try:
             data = request.data
 
-            # Verificar que se incluya el campo 'characteristics'
-            if "characteristics" not in data or not isinstance(data["characteristics"], list) or len(data["characteristics"]) == 0:
-                return JsonResponse({"error": "El campo 'characteristics' es requerido y debe ser una lista con al menos un ID."}, status=400)
-
             # Intentar obtener el Tour por nombre
             tour = get_object_or_404(Tour, tour_name=data['tour_name'])
 
@@ -77,12 +73,13 @@ class PostComment(APIView):
                 calification=data["calification"]
             )
 
-            # Agregar características por IDs
-            characteristics_to_add = Characterisitcs.objects.filter(id__in=data["characteristics"])
-            if characteristics_to_add.count() != len(data["characteristics"]):
-                return JsonResponse({"error": "Una o más characteristics IDs no son válidos."}, status=400)
-
-            comment.characterisitcs.set(characteristics_to_add)
+            # Si se proporcionan characteristics, se agregan
+            char_ids = data.get("characteristics", [])  # Puede ser lista vacía
+            if char_ids:
+                characteristics_to_add = Characterisitcs.objects.filter(id__in=char_ids)
+                if characteristics_to_add.count() != len(char_ids):
+                    return JsonResponse({"error": "Una o más characteristics IDs no son válidos."}, status=400)
+                comment.characterisitcs.set(characteristics_to_add)
 
             return JsonResponse({"message": "Comentario agregado exitosamente"}, status=201)
 
@@ -90,7 +87,6 @@ class PostComment(APIView):
             return JsonResponse({"error": f"Falta el campo requerido: {str(e)}"}, status=400)
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
-
 
 class create_user(APIView):
     http_method_names = ["post"]
