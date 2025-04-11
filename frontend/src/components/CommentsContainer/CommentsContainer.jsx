@@ -28,6 +28,8 @@ const CommentsContainer = ({ tour }) => {
       ? (tourComments.reduce((acc, comment) => acc + comment.calification, 0) / tourComments.length).toFixed(1)
       : 'N/A';
 
+    const calificationsTotal = tourComments.map((comment) => comment.calification);
+
   return (
     <>
       <p id='comments-title'>Comments</p>
@@ -36,7 +38,7 @@ const CommentsContainer = ({ tour }) => {
         <p>Publish a comment!</p>
         <span>
           {/* Se pasa la cantidad de comentarios como "comment" */}
-          <Summarize average={computedAverage} comment={tourComments.length} />
+          <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
         </span>
         <span className='comment'>
           {tourComments.map((comment, index) => (
