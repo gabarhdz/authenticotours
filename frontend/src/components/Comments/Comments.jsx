@@ -3,7 +3,7 @@ import './Comments.css'
 import CommentCard from '../CommentCard/CommentCard'
 import userPhoto from '../imagenes/defaultUser.png'
 import StarRating from '../StarRating/StarRating'
-const Comments = ({profile_pic,title,text,author,characteristics,rating}) => {
+const Comments = ({profile_pic,title,text,author,characteristics,rating,key}) => {
   return (
     <span className='comment-container'>
        <span>

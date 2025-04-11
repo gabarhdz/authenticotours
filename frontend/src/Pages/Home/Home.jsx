@@ -18,14 +18,13 @@ const Home = () => {
         // Extraer solo los valores de la propiedad "URL"
         const extractedUrls = indexPhotos.map(photo => photo.URL);
         setUrls(extractedUrls);
-        console.log(extractedUrls);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []);
+  },[]);
 
 
   return (

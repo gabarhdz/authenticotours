@@ -41,9 +41,9 @@ const CommentsContainer = ({ tour }) => {
           <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
         </span>
         <span className='comment'>
-          {tourComments.map((comment, index) => (
+          {tourComments.map((comment) => (
             <Comments 
-              key={index} 
+              key={Math.random()}  // Usar un identificador único en vez de `index`
               title={comment.title} 
               text={comment.text} 
               profile_pic={`http://127.0.0.1:8000/${comment.user.profile.profile_pic}`} 
@@ -52,7 +52,7 @@ const CommentsContainer = ({ tour }) => {
               rating={comment.calification}
             />
           ))}
-        </span>
+          </span>
       </span>
     </>
   );
