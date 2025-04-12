@@ -45,21 +45,24 @@ class get_specific_comments(APIView):
 
 
 
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.views import APIView
+
 class PostComment(APIView):
     http_method_names = ["post"]
+    permission_classes = [IsAuthenticated]  # Asegura que el usuario esté autenticado
 
     def post(self, request, *args, **kwargs):
         try:
             data = request.data
 
-            # Intentar obtener el Tour por nombre (tour_name)
-            try:
-                tour = get_object_or_404(Tour, tour_name=data['tour_name'])  # Aquí buscamos por nombre
-            except:
-                return JsonResponse({"error": f"No Tour matches the given name: {data['tour_name']}"}, status=400)
+            # Intentar obtener el Tour por nombre
+            tour = get_object_or_404(Tour, tour_name=data['tour_name'])
 
-            # Buscar el usuario
-            user = get_object_or_404(User, id=data['user'])
+            # Obtener el usuario automáticamente a partir del request
+            user = request.user
 
             # Crear comentario
             comment = Comments.objects.create(
@@ -70,9 +73,13 @@ class PostComment(APIView):
                 calification=data["calification"]
             )
 
-            # Agregar características
-            characteristics_to_add = Characterisitcs.objects.filter(name__in=data.get("characterisitcs", []))
-            comment.characterisitcs.set(characteristics_to_add)
+            # Si se proporcionan characteristics, se agregan
+            char_ids = data.get("characteristics", [])  # Puede ser lista vacía
+            if char_ids:
+                characteristics_to_add = Characterisitcs.objects.filter(id__in=char_ids)
+                if characteristics_to_add.count() != len(char_ids):
+                    return JsonResponse({"error": "Una o más characteristics IDs no son válidos."}, status=400)
+                comment.characterisitcs.set(characteristics_to_add)
 
             return JsonResponse({"message": "Comentario agregado exitosamente"}, status=201)
 
@@ -80,7 +87,6 @@ class PostComment(APIView):
             return JsonResponse({"error": f"Falta el campo requerido: {str(e)}"}, status=400)
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
-
 
 class create_user(APIView):
     http_method_names = ["post"]
