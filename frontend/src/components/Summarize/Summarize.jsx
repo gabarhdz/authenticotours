@@ -30,7 +30,7 @@ const Summarize = ({ average, comment, califications }) => {
   }
 
   return (
-    <div>
+    <div className="summarize-container">
       <div>
         <div>{average} </div>
         <div>{comment} comments</div>
