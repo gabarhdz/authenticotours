@@ -2,8 +2,7 @@ import {React,useEffect,useState} from 'react'
 import Header from '../../components/Header/Header'
 import Carrousel from '../../components/Carrousel/Carrousel'
 import TourContainer from '../../components/TourContainer/TourContainer'
-import './Home.css'
-
+import CommentsContainer from '../../components/CommentsContainer/CommentsContainer'
 const Home = () => {
   const [urls, setUrls] = useState([]);
 
@@ -19,14 +18,13 @@ const Home = () => {
         // Extraer solo los valores de la propiedad "URL"
         const extractedUrls = indexPhotos.map(photo => photo.URL);
         setUrls(extractedUrls);
-        console.log(extractedUrls);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []);
+  },[]);
 
 
   return (
@@ -36,6 +34,7 @@ const Home = () => {
     <TourContainer/>
     <TourContainer/>
     <TourContainer/>
+    <CommentsContainer tour={'index'}/>
     </>
   )
 }
