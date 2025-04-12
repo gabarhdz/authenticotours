@@ -1,11 +1,10 @@
 .carousel-container {
     width: 100%;
     max-width: 600px;
-    margin: 120px 120px 20px auto; /* Empuja el carrusel hacia la derecha */
     position: relative;
     overflow: hidden;
     border-radius: 15px;
-    z-index: 0; /* Se asegurará de no superponerse */
+    z-index: 0; 
 }
 
 /* Asegurar que las imágenes sean responsivas */

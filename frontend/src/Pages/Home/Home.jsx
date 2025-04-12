@@ -2,6 +2,7 @@ import {React,useEffect,useState} from 'react'
 import Header from '../../components/Header/Header'
 import Carrousel from '../../components/Carrousel/Carrousel'
 import TourContainer from '../../components/TourContainer/TourContainer'
+import './Home.css'
 
 const Home = () => {
   const [urls, setUrls] = useState([]);
