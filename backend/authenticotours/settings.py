@@ -11,10 +11,15 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import datetime, timedelta
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'profile_pic')
+MEDIA_URL = '/profile_pic/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -31,6 +36,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'cloudinary',
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'myApp',
 ]
 
@@ -50,16 +58,26 @@ REST_FRAMEWORK = {
     ],
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=30),  # Token de acceso dura 30 días
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=365),  # Token de actualización dura 1 año
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'authenticotours.urls'
 
@@ -85,13 +103,25 @@ WSGI_APPLICATION = 'authenticotours.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
+
+# Elegir qué base de datos usar: LOCAL o AIVEN
+USE_AIVEN = os.getenv('USE_AIVEN', 'False') == 'True'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('AIVEN_DB_NAME') if USE_AIVEN else os.getenv('DB_NAME'),
+        'USER': os.getenv('AIVEN_DB_USER') if USE_AIVEN else os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('AIVEN_DB_PASSWORD') if USE_AIVEN else os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('AIVEN_DB_HOST') if USE_AIVEN else os.getenv('DB_HOST'),
+        'PORT': os.getenv('AIVEN_DB_PORT') if USE_AIVEN else os.getenv('DB_PORT'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
