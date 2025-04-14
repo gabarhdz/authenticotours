@@ -10,6 +10,10 @@ const LogIn = () => {
         try {
               const loginResult = await loginAPI(username, password);
               console.log('Usuario logueado con éxito:', loginResult);
+              const loginContainer = document.querySelector('.loginInput-container');
+              loginContainer.style.display = 'none'; 
+              const commentContainer = document.querySelector('.commentInput-container');
+              commentContainer.style.display = 'block'; // Muestra el contenedor del comentario
         
         
         } catch (error) {

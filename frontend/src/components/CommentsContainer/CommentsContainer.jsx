@@ -63,7 +63,7 @@ const CommentsContainer = ({ tour }) => {
             <span className='comment-button' >Publish</span>
             </button>
             <div className='commentInput-container'>
-            <CommentInput />
+            <CommentInput tour={tour}/>
             </div>
             <div className='signupInput-container'>
             <SignUp />

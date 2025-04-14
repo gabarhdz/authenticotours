@@ -4,6 +4,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from django.utils.decorators import method_decorator
 from .models import *
@@ -108,29 +109,32 @@ class create_user(APIView):
 
 
 class UpdateProfilePicture(APIView):
+    permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]  # 👈 importante para manejar archivos
+
     http_method_names = ["patch"]
 
     def patch(self, request, *args, **kwargs):
         try:
             user = request.user
-            profile = Profile.objects.get(user=user)  # Busca el perfil existente
+            profile = Profile.objects.get(user=user)
             
-            # Actualiza la foto
-            if 'profile_pic' in request.FILES:
-                profile.profile_pic = request.FILES['profile_pic']
-                profile.save()
-                return JsonResponse({
-                    "message": "Foto de perfil actualizada",
-                    "profile_pic": profile.profile_pic.url  # URL de la foto
-                }, status=200)
+            # Revisar si se envió una imagen
+            if 'profile_pic' not in request.FILES:
+                return JsonResponse({"error": "No se proporcionó una imagen"}, status=400)
             
-            return JsonResponse({"error": "No se proporcionó una imagen"}, status=400)
-        
+            profile.profile_pic = request.FILES['profile_pic']
+            profile.save()
+
+            return JsonResponse({
+                "message": "Foto de perfil actualizada",
+                "image_url": profile.profile_pic.url  # opcional: devolver la URL
+            }, status=200)
+
         except ObjectDoesNotExist:
             return JsonResponse({"error": "El usuario no tiene perfil"}, status=404)
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=500)
-        
 
 class get_media(APIView):
     http_method_names = ["get"]
