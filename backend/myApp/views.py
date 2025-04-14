@@ -95,7 +95,7 @@ class create_user(APIView):
         try:
             data = request.data
             # Crear usuario
-            user = User.objects.create(
+            user = User.objects.create_user(
                 username=data["username"],
                 password=data["password"],
             )

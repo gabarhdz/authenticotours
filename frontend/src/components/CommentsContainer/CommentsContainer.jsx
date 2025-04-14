@@ -5,6 +5,7 @@ import Summarize from '../Summarize/Summarize';
 import { login } from '../../api/login';
 import CommentInput from '../CommentInput/CommentInput';
 import SignUp from '../SignUp/SignUp';
+import LogIn from '../LogIn/LogIn';
 
 const CommentsContainer = ({ tour }) => {
   const [tourComments, setTourComments] = useState([]);
@@ -54,11 +55,10 @@ const CommentsContainer = ({ tour }) => {
         <p>Publish a comment!</p>
         <span>
           {/* Se pasa la cantidad de comentarios como "comment" */}
-          <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
-          
           {
             tourComments.length!==0?
             <>
+            <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
             <button onClick={showpublish}>
             <span className='comment-button' >Publish</span>
             </button>
@@ -67,6 +67,9 @@ const CommentsContainer = ({ tour }) => {
             </div>
             <div className='signupInput-container'>
             <SignUp />
+            </div>
+            <div className='loginInput-container'>
+            <LogIn />
             </div>
             </>
           : null

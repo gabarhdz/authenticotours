@@ -5,6 +5,7 @@ import { login as loginAPI } from '../../api/login';
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [profilePicture, setProfilePicture] = useState(null);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -20,6 +21,15 @@ const SignUp = () => {
       console.error('Error en registro:', error.message);
     }
   };
+
+  const displaylogin = () => { 
+    
+    const signupContainer = document.querySelector('.signupInput-container');
+      signupContainer.style.display = 'none'; 
+    const loginContainer = document.querySelector('.loginInput-container');
+    loginContainer.style.display = 'block'; 
+  }
+
 
   return (
     <form onSubmit={handleSignup}>
@@ -45,7 +55,11 @@ const SignUp = () => {
             />
           </p>
         </div>
-        <button type="submit">Create Account!</button>
+        <div>
+          <p>Profile picture</p>
+          <input type="file" accept="image/*" onChange={(e) => setProfilePicture(e.target.files[0])} />
+        </div>
+        <button type="submit">Create Account!</button><button onClick={displaylogin}>Already have an acount?</button>
       </span>
     </form>
   );
