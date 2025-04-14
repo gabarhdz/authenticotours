@@ -95,10 +95,11 @@ class create_user(APIView):
         try:
             data = request.data
             # Crear usuario
-            user = User.objects.create_user(
+            user = User.objects.create(
                 username=data["username"],
                 password=data["password"],
             )
+            user.is_active = True
             return JsonResponse({"message": "Usuario creado exitosamente"}, status=201)
         except KeyError as e:
             return JsonResponse({"error": f"Falta el campo requerido: {str(e)}"}, status=400)

@@ -25,9 +25,6 @@ const Summarize = ({ average, comment, califications }) => {
     setBad(count2);
     setTerrible(count1);
   }, [califications]);
-  function publish(){
-    console.log("Perick")
-  }
 
   return (
     <div className="summarize-container">
@@ -40,7 +37,6 @@ const Summarize = ({ average, comment, califications }) => {
       <span>Normal {normal}</span>
       <span>Bad {bad}</span>
       <span>Terrible {terrible}</span>
-      <button onClick={publish()}>Publish a comment!</button>
     </div>
   );
 };

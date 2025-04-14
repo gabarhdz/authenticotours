@@ -29,3 +29,10 @@ hr {
     margin-right: 40px;
     float: right;
 }
+.commentInput-container{
+    display: none;
+}
+.signupInput-container{
+    display: none;
+}
+
