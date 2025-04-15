@@ -9,7 +9,7 @@ import LogIn from '../LogIn/LogIn';
 
 const CommentsContainer = ({ tour }) => {
   const [tourComments, setTourComments] = useState([]);
-  const [token, setToken] = useState(null); // Estado para almacenar el token
+  const [token, setToken] = useState(null); 
 
   useEffect(() => {
     const fetchData = async () => {

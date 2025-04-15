@@ -1,42 +1,66 @@
-import {React,useEffect,useState} from 'react'
-import Header from '../../components/Header/Header'
-import Carrousel from '../../components/Carrousel/Carrousel'
-import TourContainer from '../../components/TourContainer/TourContainer'
-import CommentsContainer from '../../components/CommentsContainer/CommentsContainer'
+import { React, useEffect, useState } from 'react';
+import Header from '../../components/Header/Header';
+import Carrousel from '../../components/Carrousel/Carrousel';
+import TourContainer from '../../components/TourContainer/TourContainer';
+import CommentsContainer from '../../components/CommentsContainer/CommentsContainer';
+import './Home.css';
+import { tours as toursAPI } from '../../api/tours';
+
 const Home = () => {
   const [urls, setUrls] = useState([]);
+  const [tours, setTours] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchMedia = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8000/api/media/index');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const indexPhotos = await response.json();
-
-        // Extraer solo los valores de la propiedad "URL"
         const extractedUrls = indexPhotos.map(photo => photo.URL);
         setUrls(extractedUrls);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching media:', error);
       }
     };
 
-    fetchData();
-  },[]);
+    const fetchTours = async () => {
+      try {
+        const tourData = await toursAPI();
+        setTours(tourData);
+      } catch (error) {
+        console.error('Error fetching tours:', error);
+      }
+    };
 
+    fetchMedia();
+    fetchTours();
+  }, []);
 
   return (
     <>
-    <Header/>
-    <Carrousel images={urls}/>
-    <TourContainer/>
-    <TourContainer/>
-    <TourContainer/>
-    <CommentsContainer tour={'index'}/>
-    </>
-  )
-}
+      <Header />
+      <Carrousel images={urls} />
+      {tours.map((tour) => {
+        if (tour.tour_name === "index") return null; // 👈 No mostrar el tour llamado "index"
 
-export default Home
+        const photosURL = tour.photos ? tour.photos.map(photo => photo.URL) : [];
+
+        return (
+          <TourContainer
+            key={tour.id}
+            photos={photosURL}
+            tour_name={tour.tour_name}
+            tour_description={tour.tour_description}
+            min_people={tour.min_people}
+            duration={tour.duration}
+          />
+        );
+      })}
+      <CommentsContainer tour={'index'} />
+    </>
+  );
+};
+
+export default Home;
