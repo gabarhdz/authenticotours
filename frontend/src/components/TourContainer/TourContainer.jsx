@@ -17,23 +17,18 @@ const TourContainer = ({photos,tour_name,tour_description,min_people,duration}) 
             <strong>Duration: {duration} hours</strong>
           </p>
           <div className="tour-stars">⭐⭐⭐⭐⭐</div>
+          <p>Min of people: {min_people}</p>
         </div>
-        <p>
-          Min of people: {min_people}
-        </p>
-        <p>
 
-        </p>
-        <p className="tour-description">
-          {tour_description}
-        </p>
+        <p className="tour-description">{tour_description}</p>
+        
       </div>
       
       <div className="tour-booking">
         <p className="tour-price">
           <span>Book now!</span>
         </p>
-        <button><div><WhatsApp /></div> Contact via Whatsapp</button>
+        <button><div className="whats"><WhatsApp /></div> Contact me</button>
       </div>
     </div>
   );

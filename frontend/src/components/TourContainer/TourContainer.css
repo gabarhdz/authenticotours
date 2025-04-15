@@ -34,32 +34,29 @@
 }
 
 .tour-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
 .tour-duration {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #666;
   margin-bottom: 5px;
 }
 
 .tour-stars {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: gold;
   margin-bottom: 15px;
 }
 
 .tour-description {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   color: #333;
-  line-height: 1.5;
+  line-height: 1.25;
   overflow-wrap: break-word;
-  position: absolute; 
-  bottom: 0; 
-  left: 0;
-  right: 0;
-  margin: 0; 
+  position: relative; 
+  margin-top: auto;
 }
 
 .tour-booking {
@@ -75,33 +72,44 @@
 
 .tour-price {
   font-size: 1.8rem;
-  font-weight: bold;
-  color: #333;
+  font-weight: 500;
   margin-bottom: 5px;
-}
-
-.tour-price span {
   color: #12130F;
   font-size: 2rem;
 }
 
-.tour-booking button {
-  width: 80%;
-  gap: 0.5rem;
-  display: inline-flex;
+.tour-booking {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+}
+
+.tour-booking button {
+  width: 80%;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center; 
   background-color: #8FCB9B;
   color: #12130F;
-  font-size: 0.7rem;
-  font-weight: bold;
-  padding: 15px 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 10px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 7px;
   cursor: pointer;
   transition: background 0.3s;
-  text-align: left;
+  white-space: nowrap;
 }
+
+.whats {
+  font-size: 1.03rem;
+  display: flex;
+  align-items: center;
+}
+
 
 .tour-booking button:hover {
   background-color: #5B9279;
