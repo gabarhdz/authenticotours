@@ -3,27 +3,29 @@ import Carrousel from '../Carrousel/Carrousel'
 import WhatsApp from '../logos/whastapp'
 import './TourContainer.css'
 
-const TourContainer = () => {
+const TourContainer = ({photos,tour_name,tour_description,min_people,duration}) => {
   return (
     <div className="tour-container">
       <div className="tour-image">
-        <Carrousel />
+        <Carrousel images={photos}/>
       </div>
       
       <div className="tour-info">
         <div className="tour-info-header">
-          <h2 className="tour-title">Fishing Tour</h2>
+          <h2 className="tour-title">{tour_name}</h2>
           <p className="tour-duration">
-            <strong>Duration: 4 hours</strong>
+            <strong>Duration: {duration} hours</strong>
           </p>
           <div className="tour-stars">⭐⭐⭐⭐⭐</div>
         </div>
-        
+        <p>
+          Min of people: {min_people}
+        </p>
+        <p>
+
+        </p>
         <p className="tour-description">
-          Embark on an unforgettable fishing adventure that promises both
-          relaxation and thrill! Our fishing tour offers a half-day trip lasting
-          5 hours, where you can immerse yourself in the beauty of nature while
-          casting your line into pristine waters.
+          {tour_description}
         </p>
       </div>
       
