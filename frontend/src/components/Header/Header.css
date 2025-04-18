@@ -1,41 +1,84 @@
 /* Fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
-/* Estilos generales */
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+min-height: 100vh;
+}
 nav {
     background-color: #8F8073;   
-    height: 95px;                 
-    display: flex;                
-    justify-content: space-between; 
-    align-items: center;          
-    padding: 0 20px;              
-    color: #F1EAE8;;                 
-    font-family: "Merriweather", serif; 
-    font-size: 30px;              
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);                
+    font-family: "Merriweather", serif;              
 }
-
-/* Título */
-#title p {
-    font-size: 45px;              
-    margin: 0;                    
+nav ul {
+width: 100%;
+list-style: none;
+display: flex;
+justify-content: flex-end;
+align-items: center;
 }
-
-/* Lista de navegación */
-ul {
-    display: flex;                
-    list-style-type: none;        
-    margin: 0;                    
-    padding: 0;                   
+nav li{
+    height: 90px;
 }
-
-ul li {
-    font-size: 25px;
-    margin-left: 30px;            
-    cursor: pointer;             
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #12130F;
 }
-
-
-ul li:hover {
-    color: #474242;                  
-    text-decoration: underline;   
+nav a:hover {
+    background-color: #796d64;
+    transition: 0.2s ease-in-out;
+}
+nav li:first-child{
+    margin-right: auto;
+    font-size: 2rem;
+}
+.sidebar{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 1;
+    background-color: rgba(143, 128, 115, 0.2);
+    backdrop-filter: blur(9px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar li{
+    width: 100%;
+}
+.sidebar a{
+    width: 100%;
+}
+.menuButton{
+    display: none;
+}
+.login{
+margin-top: auto;
+}
+@media(max-width:920px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menuButton{
+        display: flex;
+    }
+    .sidebar{
+        width: 45%;;
+    }
+}
+@media(max-width:525px){
+    .sidebar{
+        width: 100%;
+    }
 }

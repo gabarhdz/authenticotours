@@ -1,0 +1,8 @@
+.carrusel{
+    margin:45px;
+}
+@media (max-width: 820px) {
+    .carrusel{
+        margin:0px;
+    }
+}

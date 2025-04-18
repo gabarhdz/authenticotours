@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <Carrousel images={urls} />
+      <div className="carrusel"><Carrousel images={urls} /></div>
       {tours.map((tour) => {
         if (tour.tour_name === "index") return null; // 👈 No mostrar el tour llamado "index"
 
