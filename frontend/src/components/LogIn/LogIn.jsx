@@ -27,33 +27,51 @@ const LogIn = () => {
     const loginContainer = document.querySelector('.loginInput-container');
     loginContainer.style.display = 'none'; 
     }
+    function hideLogin() {
+      const loginContainer = document.querySelector('.loginInput-container');
+      loginContainer.style.display = 'none'; 
+    }
+
   return (
-    <form onSubmit={handleLogin}>
-      <span>
-        <p>Log In!</p>
-        <div>
-          <p>
-            <input
-              type="text"
-              placeholder="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </p>
-        </div>
-        <div>
-          <p>
-            <input
-              type="password"
-              placeholder="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </p>
-        </div>
-        <button type="submit">Start!</button><button onClick={displaysignup}>You don't have an acount?</button>
-      </span>
+    <>
+    <form onSubmit={handleLogin} className="login-form">
+    <div className="close" onClick={hideLogin}>
+    <span className="material-symbols-outlined">close</span>
+    </div>
+
+  <p className="form-title-login">Log In!</p>
+
+  <div className="input-group-login">
+    <label htmlFor="username">Username:</label>
+    <input
+      type="text"
+      id="username"
+      placeholder="Enter your username"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+    />
+  </div>
+
+  <div className="input-group-login">
+    <label htmlFor="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+    />
+  </div>
+
+    <div className="button-group-login">
+    <button type="submit" className="submit-btn">Start!</button>
+    <button type="button" className="login-btn" onClick={displaysignup}>
+      You don't have an account? sign up!
+    </button>
+    </div>
     </form>
+    <div className='outclick' onClick={hideLogin}></div>
+    </>
   )
 }
 

@@ -37,15 +37,21 @@ const handleCheckboxChange = (id) => {
     console.log('Comentario:', data);
     alert('Comentario publicado!');
   };
+  function hideComment() {
+    const commentContainer = document.querySelector('.commentInput-container');
+    commentContainer.style.display = 'none'; 
+  }
 
   return (
+  <>
     <form onSubmit={(e) => e.preventDefault()}>
       <div className='comment-input-container'>
+      <div className='closeComment' onClick={hideComment}><span class="material-symbols-outlined">close</span></div>
         <input type="text" placeholder="Title" className='comment-input' />
         <input type="text" placeholder="Comment" className='title-input' />
 
         <div className="checkbox-group">
-          <p>Características:</p>
+          <p>Caracteristics:</p>
           {characteristicsList.map(({ id, label }) => (
   <label key={id} className="checkbox-option">
     <input
@@ -61,7 +67,7 @@ const handleCheckboxChange = (id) => {
         </div>
 
         <div className="range-group">
-          <label htmlFor="calification">Calificación: {calification}</label>
+          <label htmlFor="calification">Calification: {calification}</label>
           <input
             type="range"
             name="calification"
@@ -76,6 +82,8 @@ const handleCheckboxChange = (id) => {
         <button type="submit" onClick={publishComment}>Enviar</button>
       </div>
     </form>
+    <div className='outclick' onClick={hideComment}></div>
+    </>
   );
 };
 

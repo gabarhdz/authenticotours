@@ -14,7 +14,7 @@ function showSidebar() {
   return (
     <>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <nav id='home'>
+    <nav>
         <ul>
             <li><a href="#">Authenticotours</a></li>
             <li className='hideOnMobile'><a href="#">Activities</a></li>
@@ -25,15 +25,16 @@ function showSidebar() {
             <li className='hideOnMobile'><a href="#">Log in</a></li>
             <li className='menuButton' onClick={showSidebar}><a href="#"><span class="material-symbols-outlined">menu</span></a></li>
         </ul>
+        
         <ul className="sidebar">
-            <li onClick={hideSidebar}><a href="#"><span class="material-symbols-outlined">close</span></a></li>
-            <li><a href="home">Authenticotours</a></li>
+            <li onClick={hideSidebar}><a><span class="material-symbols-outlined">close</span></a></li>
+            <li><a href="#">Authenticotours</a></li>
             <li><a href="#">Activities</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Reviews</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">EN/ES</a></li>
-            <li><a href="#">Log in</a></li>
+            <li className='login'><a href="#">Log in</a></li>
         </ul>
     </nav>
     </>

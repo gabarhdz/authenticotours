@@ -19,7 +19,6 @@
   height: auto;
   display: flex;
 }
-
 .tour-info {
   flex: 2;
   display: flex;
@@ -30,28 +29,28 @@
 }
 
 .tour-info-header {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .tour-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
 .tour-duration {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   color: #666;
   margin-bottom: 5px;
 }
 
 .tour-stars {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: gold;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .tour-description {
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   color: #333;
   line-height: 1.25;
   overflow-wrap: break-word;
@@ -67,23 +66,13 @@
   text-align: center;
   gap: 10px;
   align-self: flex-end; 
-  margin-top: auto; 
 }
 
 .tour-price {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 5px;
   color: #12130F;
-  font-size: 2rem;
-}
-
-.tour-booking {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
 }
 
 .tour-booking button {
@@ -119,13 +108,45 @@
     font-size: 1rem;
   }
 }
+@media (max-width:938px){
+  .tour-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 10px;
+    justify-content: center;
+  }
+  .tour-image {
+    max-width: 100%;
+    order: 1;
+  }
+  .tour-info {
+    width: 100%;
+    text-align: left;
+    order: 2;
+    margin-bottom: 20px;
+  }
+  .tour-booking{
+    order:3;
+    align-items: center;
+    align-self: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .tour-price{
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+}
 @media (max-width: 768px) {
   .tour-container {
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 0;
     gap: 15px;
     max-width: 100%;
+    margin-bottom: 10px;
   }
 
   .tour-image {
@@ -136,17 +157,16 @@
 
   .tour-info {
     width: 100%;
-    text-align: center;
+    text-align: left;
     order: 2;
-    padding: 0 10px;
+    padding:10px;
     position: static;
-    margin-bottom: 20px;
   }
 
   .tour-description {
-    text-align: center;
+    text-align: left;
     position: static;
-    margin-top: 15px;
+    font-size: 0.8rem;
   }
 
   .tour-booking {
@@ -155,9 +175,13 @@
     align-items: center;
     align-self: center;
   }
+  .tour-price{
+    font-size: 1rem;
+    font-weight: 700;
+  }
 
   .tour-booking button {
-    width: 90%;
+    width: 50%;
     justify-content: center;
   }
 }

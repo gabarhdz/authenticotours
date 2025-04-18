@@ -51,9 +51,8 @@ const CommentsContainer = ({ tour }) => {
     <>
       <p id='comments-title'>Comments</p>
       <hr /> 
-      <span className='comments-container'>
-        <p>Publish a comment!</p>
-        <span>
+
+        <p >Publish a comment!</p>
           {/* Se pasa la cantidad de comentarios como "comment" */}
           {
             tourComments.length!==0?
@@ -74,8 +73,7 @@ const CommentsContainer = ({ tour }) => {
             </>
           : null
           }
-          
-        </span>
+        <span className='comments-container'>
         <span className='comment'>
           {tourComments.map((comment) => (
             <Comments 
