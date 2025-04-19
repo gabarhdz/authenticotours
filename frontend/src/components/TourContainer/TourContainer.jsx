@@ -2,8 +2,10 @@ import React from 'react'
 import Carrousel from '../Carrousel/Carrousel'
 import WhatsApp from '../logos/whastapp'
 import './TourContainer.css'
+import { Link } from 'react-router-dom'
 
 const TourContainer = ({photos,tour_name,tour_description,min_people,includes,duration}) => {
+  const slug = tour_name.toLowerCase().replace(/\s+/g, '-');
   return (
     <div className="tour-container">
       <div className="tour-image">
@@ -28,8 +30,10 @@ const TourContainer = ({photos,tour_name,tour_description,min_people,includes,du
       <div className="tour-booking">
         <p className="tour-price">
           <span>Book now!</span>
+          
         </p>
-        <button><div className="whats"><WhatsApp /></div><a href="https://wa.me/50661392424?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20tours!">Contact me</a></button>
+        <Link  to={`/tour/${slug}`} className="tour-button">Book</Link>
+        <button><div className="whats"><WhatsApp /></div><a target='_blank' href={`https://wa.me/50661392424?text=Hi,%20I%20saw%20in%20autenticotours.com%20the%20${tour_name}%20I%20want%20to%20know%20more%20about%20it!,%20could%20you%20send%20me%20more%20info?`}>Contact me</a></button>
       </div>
     </div>
   );
