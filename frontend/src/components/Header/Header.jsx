@@ -25,9 +25,9 @@ function showSidebar() {
     <nav>
         <ul>
             <li><a href="#">Authenticotours</a></li>
-            <li className='hideOnMobile'><a href="#comments-section">Activities</a></li>
+            <li className='hideOnMobile'><a href="#tours">Activities</a></li>
             <li className='hideOnMobile'><a href="#">About</a></li>
-            <li className='hideOnMobile'><a href="#">Reviews</a></li>
+            <li className='hideOnMobile'><a href="#comments-section">Reviews</a></li>
             <li className='hideOnMobile'><a href="#">Contact</a></li>
             <li className='hideOnMobile'><a href="#">EN/ES</a></li>
             <li className='hideOnMobile'><a href="#">{token===null?<>Log in</>:<>Log out</>}</a></li>

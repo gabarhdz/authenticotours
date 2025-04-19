@@ -43,6 +43,7 @@ const Home = () => {
     <>
       <Header />
       <div className="carrusel"><Carrousel images={urls} /></div>
+      <div id="tours">
       {tours.map((tour) => {
         if (tour.tour_name === "index") return null; // 👈 No mostrar el tour llamado "index"
 
@@ -61,6 +62,7 @@ const Home = () => {
           />
         );
       })}
+      </div>
       <CommentsContainer tour={'index'} />
       <Footer />
     </>
