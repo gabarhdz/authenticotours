@@ -38,4 +38,22 @@ hr {
 .loginInput-container{
     display: none;
 }
+.comments-section {
+    margin-top: 40px;
+    width: 100%;
+  }
+  
+  .commentInput-container {
+    display: none;
+    margin: 20px 0;
+    /* Eliminar el posicionamiento fijo */
+  }
+  
+  .signupInput-container {
+    display: none;
+  }
+  
+  .loginInput-container {
+    display: none;
+  }
 
