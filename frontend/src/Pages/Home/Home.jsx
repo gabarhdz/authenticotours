@@ -46,6 +46,7 @@ const Home = () => {
         if (tour.tour_name === "index") return null; // 👈 No mostrar el tour llamado "index"
 
         const photosURL = tour.photos ? tour.photos.map(photo => photo.URL) : [];
+        const includes = tour.includes ? tour.includes.map(include => include.name).join(', ') : '';
 
         return (
           <TourContainer
@@ -55,6 +56,7 @@ const Home = () => {
             tour_description={tour.tour_description}
             min_people={tour.min_people}
             duration={tour.duration}
+            includes={includes}
           />
         );
       })}
