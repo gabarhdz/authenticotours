@@ -57,7 +57,7 @@ const CommentsContainer = ({ tour }) => {
   };
 
   return (
-    <div className="comments-section">
+    <div id="comments-section">
       <p id='comments-title'>Comments</p>
       <hr /> 
 
