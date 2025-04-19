@@ -1,41 +1,93 @@
-p#comments-title {
+p#comments-title{
     font-size: 40px;
     margin: 5px;
 }
-
-
 hr {
     border: 0;
     height: 4px;
     background-color: #8f8073;
     margin: 10px 0;
 }
-
 .comments-container {
-    margin-top: 80px;
-    display: inline-block; 
+    display: flex;
     width: 100%;
-    }
+    margin-top: 20px;
+  }
+  .summarize-container button{
+    margin: 10px;
+    margin-left: 50px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #5B9279;
+    cursor: pointer;
+    color: #EAE6E5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+  .summarize-container button:hover{
+    background-color: #4a7b63;
+  }
+  .summarize-container p{
+    font-size: 1rem;
+    margin-left: 50px;
+  }
 
-.comments-container > * {
-    display: inline-block; 
-    margin: 0 5px;
-}
-
-.comment{
+  .comment {
     display: flex;
     flex-direction: column;
     padding: 5px;
-    margin-right: 40px;
-    float: right;
-}
-.commentInput-container{
-    display: none;
-}
-.signupInput-container{
-    display: none;
-}
-.loginInput-container{
-    display: none;
-}
+    margin-left: auto;
+  }
 
+  .comment > * {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .commentInput-container,
+  .signupInput-container,
+  .loginInput-container {
+    display: none;
+
+  }
+  
+  .commentInput-container.active,
+  .signupInput-container.active,
+  .loginInput-container.active {
+    display: block;
+  }
+  @media screen and (max-width: 1200px) {
+    .comments-container {
+      flex-direction: column;
+    }
+    .comment {
+        width: 100%;
+        align-items: center;
+      }
+
+}
+  
+  @media screen and (max-width: 768px) {
+    .comments-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    p#comments-title{
+        font-size: 30px;
+    }
+    
+    .summarize-container {
+      flex: 0 0 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .comment {
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }

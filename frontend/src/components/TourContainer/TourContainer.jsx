@@ -28,7 +28,7 @@ const TourContainer = ({photos,tour_name,tour_description,min_people,duration}) 
         <p className="tour-price">
           <span>Book now!</span>
         </p>
-        <button><div className="whats"><WhatsApp /></div> Contact me</button>
+        <button><div className="whats"><WhatsApp /></div><a href="https://wa.me/50661392424?text=Hi,%20I%20want%20to%20know%20more%20about%20the%20tours!">Contact me</a></button>
       </div>
     </div>
   );

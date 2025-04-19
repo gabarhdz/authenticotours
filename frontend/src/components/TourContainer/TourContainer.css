@@ -92,6 +92,11 @@
   transition: background 0.3s;
   white-space: nowrap;
 }
+.tour-booking a{
+  text-decoration: none;
+  color: #12130F;
+  font-size: 0.9rem;
+}
 
 .whats {
   font-size: 1.03rem;

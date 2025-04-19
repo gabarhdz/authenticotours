@@ -31,7 +31,7 @@ const LogIn = () => {
       const loginContainer = document.querySelector('.loginInput-container');
       loginContainer.style.display = 'none'; 
     }
-
+    const [showPassword, setShowPassword] = React.useState(false)
   return (
     <>
     <form onSubmit={handleLogin} className="login-form">
@@ -53,15 +53,24 @@ const LogIn = () => {
   </div>
 
   <div className="input-group-login">
-    <label htmlFor="password">Password:</label>
+  <label htmlFor="password">Password:</label>
+  <div className="password-wrapper">
     <input
-      type="password"
+      type={showPassword ? "text" : "password"}
       id="password"
       placeholder="Enter your password"
       value={password}
       onChange={(e) => setPassword(e.target.value)}
     />
+    <span
+      className="toggle-password"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+      {showPassword ? "visibility_off" : "visibility"}
+    </span>
   </div>
+</div>
+
 
     <div className="button-group-login">
     <button type="submit" className="submit-btn">Start!</button>

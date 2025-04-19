@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import Carrousel from '../../components/Carrousel/Carrousel';
 import TourContainer from '../../components/TourContainer/TourContainer';
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer';
+import Footer from '../../components/footer/footer';
 import './Home.css';
 import { tours as toursAPI } from '../../api/tours';
 
@@ -59,6 +60,7 @@ const Home = () => {
         );
       })}
       <CommentsContainer tour={'index'} />
+      <Footer />
     </>
   );
 };

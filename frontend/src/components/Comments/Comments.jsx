@@ -20,9 +20,8 @@ const Comments = ({profile_pic,title,text,author,characteristics,rating,key}) =>
                 </div>
               ))}
             </span>
-            <br />
-            <h2>{title}</h2>
         </span>
+        <h2>{title}</h2>
         <p>
             {text }
         </p>

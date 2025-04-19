@@ -89,6 +89,28 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
+  .password-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* espacio para el icono */
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-family: 'Material Symbols Outlined';
+    font-size: 1.2rem;
+    color: #12130F;
+    user-select: none;
+  }
+  
   
   @media (max-width: 480px) {
     .login-form {

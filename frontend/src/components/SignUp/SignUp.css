@@ -77,10 +77,10 @@ form {
     background-color: #eee;
     color: #000;
   }
-    .login-btn:hover {
-        background-color: #8F8073;
-        color: white;
-    }
+  .login-btn:hover {
+      background-color: #8F8073;
+      color: white;
+  }
   .file-upload {
     align-items: center;
   }
@@ -122,6 +122,36 @@ form {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 2;
   }
+  .password-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .password-wrapper input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-family: 'Material Symbols Outlined';
+    font-size: 1.2rem;
+    color: #12130F;
+    user-select: none;
+  }
+  
   
   @media (max-width: 820px) {
     form {

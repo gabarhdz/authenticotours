@@ -51,16 +51,16 @@ const CommentsContainer = ({ tour }) => {
     <>
       <p id='comments-title'>Comments</p>
       <hr /> 
-
-        <p >Publish a comment!</p>
+      <span className='comments-container'>
           {/* Se pasa la cantidad de comentarios como "comment" */}
           {
             tourComments.length!==0?
             <>
+            <div className='summarize-container'>
             <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
-            <button onClick={showpublish}>
-            <span className='comment-button' >Publish</span>
-            </button>
+            <p >Publish a comment!</p>
+            <button onClick={showpublish}><span className='comment-button' >Publish</span></button>
+            </div>
             <div className='commentInput-container'>
             <CommentInput tour={tour}/>
             </div>
@@ -70,10 +70,13 @@ const CommentsContainer = ({ tour }) => {
             <div className='loginInput-container'>
             <LogIn />
             </div>
+            <div className='modal-cometario-exitoso'>
+            <p></p>
+            </div>
             </>
           : null
           }
-        <span className='comments-container'>
+
         <span className='comment'>
           {tourComments.map((comment) => (
             <Comments 

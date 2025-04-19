@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Summarize.css';
 
 const Summarize = ({ average, comment, califications }) => {
@@ -26,17 +26,53 @@ const Summarize = ({ average, comment, califications }) => {
     setTerrible(count1);
   }, [califications]);
 
+  const total = califications.length;
+
+  const getWidth = (count) => {
+    return total > 0 ? `${(count / total) * 100}%` : '0%';
+  };
+
   return (
     <div className="summarize-container">
-      <div>
-        <div>{average} </div>
-        <div>{comment} comments</div>
+      <div className="summary-header">
+        <div className="average-score">{average}</div>
+        <div className="comment-count">{comment} comments</div>
       </div>
-      <span>Excelent {excelent}</span>
-      <span>Very Good {veryGood}</span>
-      <span>Normal {normal}</span>
-      <span>Bad {bad}</span>
-      <span>Terrible {terrible}</span>
+
+      <div className="rating-row">
+        <span>Excellent ({excelent})</span>
+        <div className="bar-background">
+          <div className="bar-fill" style={{ width: getWidth(excelent) }}></div>
+        </div>
+      </div>
+
+      <div className="rating-row">
+        <span>Very Good ({veryGood})</span>
+        <div className="bar-background">
+          <div className="bar-fill" style={{ width: getWidth(veryGood) }}></div>
+        </div>
+      </div>
+
+      <div className="rating-row">
+        <span>Normal ({normal})</span>
+        <div className="bar-background">
+          <div className="bar-fill" style={{ width: getWidth(normal) }}></div>
+        </div>
+      </div>
+
+      <div className="rating-row">
+        <span>Bad ({bad})</span>
+        <div className="bar-background">
+          <div className="bar-fill" style={{ width: getWidth(bad) }}></div>
+        </div>
+      </div>
+
+      <div className="rating-row">
+        <span>Terrible ({terrible})</span>
+        <div className="bar-background">
+          <div className="bar-fill" style={{ width: getWidth(terrible) }}></div>
+        </div>
+      </div>
     </div>
   );
 };

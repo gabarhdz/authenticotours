@@ -1,7 +1,80 @@
-.summarize-container{
-    display: flex;
-    flex-direction: column;
+.summarize-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-left: 30px;
+}
+
+.summary-header {
+  margin-bottom: 20px;
+}
+
+.average-score {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.comment-count {
+  font-size: 1rem;
+  color: #666;
+}
+
+.rating-row {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.rating-row span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.bar-background {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.4s ease-in-out;
+}
+@media (max-width:1200px){
+  .summarize-container{
+    max-width: 100%;
+    margin-left: 0;
+    justify-content: center;
     align-items: center;
-    /*justify-content: center;*/
-    padding: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .summarize-container {
+    padding: 10px;
+    max-width: 100%;
+  }
+  .summary-header {
+    font-size: 1.5rem;
+    align-self: center;
+  }
+
+  .average-score {
+    font-size: 1.5rem;
+  }
+
+  .rating-row span {
+    font-size: 0.85rem;
+  }
+
+  .bar-background {
+    height: 8px;
+  }
 }
