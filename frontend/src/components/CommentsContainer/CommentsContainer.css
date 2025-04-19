@@ -38,7 +38,7 @@ hr {
 .loginInput-container{
     display: none;
 }
-.comments-section {
+#comments-section {
     margin-top: 40px;
     width: 100%;
   }

@@ -1,8 +1,16 @@
-import React from 'react';
+import {React,useState,useEffect} from 'react';
 import './Header.css';
 
 const Header = () => {
+const [token, setToken] = useState(null);
 
+useEffect(() => {
+    // Verificar si hay un token en localStorage al cargar el componente
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 function showSidebar() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.style.display = 'flex';
@@ -17,12 +25,12 @@ function showSidebar() {
     <nav>
         <ul>
             <li><a href="#">Authenticotours</a></li>
-            <li className='hideOnMobile'><a href="#">Activities</a></li>
+            <li className='hideOnMobile'><a href="#comments-section">Activities</a></li>
             <li className='hideOnMobile'><a href="#">About</a></li>
             <li className='hideOnMobile'><a href="#">Reviews</a></li>
             <li className='hideOnMobile'><a href="#">Contact</a></li>
             <li className='hideOnMobile'><a href="#">EN/ES</a></li>
-            <li className='hideOnMobile'><a href="#">Log in</a></li>
+            <li className='hideOnMobile'><a href="#">{token===null?<>Log in</>:<>Log out</>}</a></li>
             <li className='menuButton' onClick={showSidebar}><a href="#"><span class="material-symbols-outlined">menu</span></a></li>
         </ul>
         
