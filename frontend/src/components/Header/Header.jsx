@@ -37,12 +37,12 @@ function showSidebar() {
         <ul className="sidebar">
             <li onClick={hideSidebar}><a><span class="material-symbols-outlined">close</span></a></li>
             <li><a href="#">Authenticotours</a></li>
-            <li><a href="#">Activities</a></li>
+            <li><a href="#tours">Activities</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Reviews</a></li>
+            <li><a href="#comments-section">Reviews</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">EN/ES</a></li>
-            <li className='login'><a href="#">Log in</a></li>
+            <li className='login'><a href="#">{token===null?<>Log in</>:<>Log out</>}</a></li>
         </ul>
     </nav>
     </>
