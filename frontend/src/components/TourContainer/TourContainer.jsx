@@ -3,7 +3,7 @@ import Carrousel from '../Carrousel/Carrousel'
 import WhatsApp from '../logos/whastapp'
 import './TourContainer.css'
 
-const TourContainer = ({photos,tour_name,tour_description,min_people,duration}) => {
+const TourContainer = ({photos,tour_name,tour_description,min_people,includes,duration}) => {
   return (
     <div className="tour-container">
       <div className="tour-image">
@@ -18,6 +18,7 @@ const TourContainer = ({photos,tour_name,tour_description,min_people,duration}) 
           </p>
           <div className="tour-stars">⭐⭐⭐⭐⭐</div>
           <p>Min of people: {min_people}</p>
+          <p>Includes:{includes}</p>
         </div>
 
         <p className="tour-description">{tour_description}</p>

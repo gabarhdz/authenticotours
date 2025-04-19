@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { signup as signupAPI } from '../../api/signup'; // Renombramos la importación
+import { signup as signupAPI } from '../../api/signup';
 import { login as loginAPI } from '../../api/login';
 import { profilepic as profilepicAPI } from '../../api/profilepic';
 import './SignUp.css'; 
@@ -9,13 +9,18 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
 
-
   const handleSignup = async (e) => {
     e.preventDefault();
 
     try {
       const result = await signupAPI(username, password);
       const loginResult = await loginAPI(username, password);
+      
+      // Guardar token en localStorage
+      if (loginResult.token) {
+        localStorage.setItem('token', loginResult.token);
+      }
+      
       const putProfilePicture = await profilepicAPI(selectedFile)
       const commentContainer = document.querySelector('.commentInput-container')
       commentContainer.style.display = 'block'
@@ -28,12 +33,12 @@ const SignUp = () => {
   };
 
   const displaylogin = () => { 
-    
     const signupContainer = document.querySelector('.signupInput-container');
-      signupContainer.style.display = 'none'; 
+    signupContainer.style.display = 'none'; 
     const loginContainer = document.querySelector('.loginInput-container');
     loginContainer.style.display = 'block'; 
   }
+  
   function hideSignup() {
     const signupContainer = document.querySelector('.signupInput-container');
     signupContainer.style.display = 'none'; 
@@ -43,7 +48,7 @@ const SignUp = () => {
   return (
     <>
     <form onSubmit={handleSignup}>
-    <div className='close' onClick={hideSignup}><span class="material-symbols-outlined">close</span></div>
+    <div className='close' onClick={hideSignup}><span className="material-symbols-outlined">close</span></div>
       <p className='input-text'>Create your account</p>
   
       <div className='input-group'>
@@ -87,9 +92,8 @@ const SignUp = () => {
       <label htmlFor="fileInput" className="custom-file-button">Choose file</label>
       </div>
 
-  
       <div className="button-group">
-        <button type="submit" className="submit-btn" onClick={hideSignup}>Create Account!</button>
+        <button type="submit" className="submit-btn">Create Account!</button>
         <button type="button" onClick={displaylogin} className="login-btn">I already have an account</button>
       </div>
     </form>

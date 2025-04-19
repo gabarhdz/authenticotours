@@ -10,6 +10,14 @@ import LogIn from '../LogIn/LogIn';
 const CommentsContainer = ({ tour }) => {
   const [tourComments, setTourComments] = useState([]);
   const [token, setToken] = useState(null); 
+  
+  useEffect(() => {
+    // Verificar si hay un token en localStorage al cargar el componente
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,53 +42,50 @@ const CommentsContainer = ({ tour }) => {
       : 'N/A';
 
   const calificationsTotal = tourComments.map((comment) => comment.calification);
+  
   const showpublish = () => {
-    // Aquí puedes agregar la lógica para publicar un comentario
-    console.log('Publish comment');
-    if(token){
+    // Verificar si hay token en localStorage en lugar de usar el estado
+    const storedToken = localStorage.getItem('token');
+    
+    if(storedToken){
       const commentContainer = document.querySelector('.commentInput-container');
-      commentContainer.style.display = 'block'; // Muestra el contenedor del comentario
-    }else{
+      commentContainer.style.display = 'block'; 
+    } else {
       const loginContainer = document.querySelector('.signupInput-container');
-      loginContainer.style.display = 'block'; // Muestra el contenedor de inicio de sesión
-      
+      loginContainer.style.display = 'block'; 
     }
   };
 
   return (
-    <>
+    <div className="comments-section">
       <p id='comments-title'>Comments</p>
       <hr /> 
-      <span className='comments-container'>
-          {/* Se pasa la cantidad de comentarios como "comment" */}
-          {
-            tourComments.length!==0?
-            <>
-            <div className='summarize-container'>
-            <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
-            <p >Publish a comment!</p>
-            <button onClick={showpublish}><span className='comment-button' >Publish</span></button>
-            </div>
-            <div className='commentInput-container'>
-            <CommentInput tour={tour}/>
-            </div>
-            <div className='signupInput-container'>
-            <SignUp />
-            </div>
-            <div className='loginInput-container'>
-            <LogIn />
-            </div>
-            <div className='modal-cometario-exitoso'>
-            <p></p>
-            </div>
-            </>
-          : null
-          }
 
+      <p>Publish a comment!</p>
+      {
+        tourComments.length !== 0 ?
+        <>
+          <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
+          <button onClick={showpublish}>
+            <span className='comment-button'>Publish</span>
+          </button>
+          <div className='commentInput-container'>
+            <CommentInput tour={tour}/>
+          </div>
+          <div className='signupInput-container'>
+            <SignUp />
+          </div>
+          <div className='loginInput-container'>
+            <LogIn />
+          </div>
+        </>
+        : null
+      }
+      <span className='comments-container'>
         <span className='comment'>
           {tourComments.map((comment) => (
             <Comments 
-              key={comment.id}  // Usar un identificador único en vez de `index`
+              key={comment.id}
               title={comment.title} 
               text={comment.text} 
               profile_pic={`http://127.0.0.1:8000/${comment.user.profile.profile_pic}`} 
@@ -89,9 +94,9 @@ const CommentsContainer = ({ tour }) => {
               rating={comment.calification}
             />
           ))}
-          </span>
+        </span>
       </span>
-    </>
+    </div>
   );
 };
 

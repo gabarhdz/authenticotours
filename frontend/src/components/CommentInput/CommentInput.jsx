@@ -36,6 +36,8 @@ const handleCheckboxChange = (id) => {
     );
     console.log('Comentario:', data);
     alert('Comentario publicado!');
+    hideComment()
+    window.location.reload()
   };
   function hideComment() {
     const commentContainer = document.querySelector('.commentInput-container');
