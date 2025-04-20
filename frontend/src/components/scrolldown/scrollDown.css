@@ -1,0 +1,62 @@
+.scroll-container {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .scroll-text {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Flecha compuesta por líneas */
+  .arrow {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .arrow span {
+    display: block;
+    width: 120px;
+    height: 6px;
+    background-color: #8d7f72;
+    margin: 5px auto;
+    transition: 0.3s;
+  }
+  
+  .arrow span:nth-child(3) {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 10px solid #8d7f72;
+    background: none;
+    margin-top: 8px;
+  }
+  
+
+  .subtitle-scroll {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #121212;
+    text-align: center;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .arrow span {
+      width: 80px;
+    }
+  
+    .arrow span:nth-child(3) {
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-top: 10px solid #8d7f72;
+    }
+  
+    .scroll-text,
+    .subtitle {
+      font-size: 0.95rem;
+    }
+  }
+  

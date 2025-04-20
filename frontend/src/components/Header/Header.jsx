@@ -26,7 +26,7 @@ function showSidebar() {
         <ul>
             <li><a href="#">Authenticotours</a></li>
             <li className='hideOnMobile'><a href="#tours">Activities</a></li>
-            <li className='hideOnMobile'><a href="#">About</a></li>
+            <li className='hideOnMobile'><a href="#about">About</a></li>
             <li className='hideOnMobile'><a href="#comments-section">Reviews</a></li>
             <li className='hideOnMobile'><a href="#">Contact</a></li>
             <li className='hideOnMobile'><a href="#">EN/ES</a></li>
@@ -38,7 +38,7 @@ function showSidebar() {
             <li onClick={hideSidebar}><a><span class="material-symbols-outlined">close</span></a></li>
             <li><a href="#">Authenticotours</a></li>
             <li><a href="#tours">Activities</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#comments-section">Reviews</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">EN/ES</a></li>
