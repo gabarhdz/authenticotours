@@ -1,6 +1,9 @@
 import { React, useEffect, useState } from 'react';
 import Header from '../../components/Header/Header';
+import HeaderInfo from '../../components/headerinfo/headerInfo';
 import Carrousel from '../../components/Carrousel/Carrousel';
+import ScrollDown from '../../components/scrolldown/scrollDown';
+import Authentico from '../../components/authenticoinfo/infoAuthentico';
 import TourContainer from '../../components/TourContainer/TourContainer';
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer';
 import Footer from '../../components/footer/footer';
@@ -42,7 +45,13 @@ const Home = () => {
   return (
     <>
       <Header />
+      <div className='inicio-pagina'>
+        <div className="info"><HeaderInfo /></div>
       <div className="carrusel"><Carrousel images={urls} /></div>
+      </div>
+      <ScrollDown />
+      <div className="infotours" id="about">
+        <Authentico />
       <div id="tours">
       {tours.map((tour) => {
         if (tour.tour_name === "index") return null; // 👈 No mostrar el tour llamado "index"
@@ -62,6 +71,7 @@ const Home = () => {
           />
         );
       })}
+      </div>
       </div>
       <CommentsContainer tour={'index'} />
       <Footer />

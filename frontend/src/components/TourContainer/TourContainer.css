@@ -111,6 +111,11 @@
   background-color: #5B9279;
 }
 @media (max-width:1514px){
+  .tour-container {
+    max-width: 100%;
+    padding: 10px;
+    margin-left: 0;
+  }
   .tour-description {
     font-size: 1rem;
   }
@@ -122,6 +127,7 @@
     max-width: 100%;
     gap: 10px;
     justify-content: center;
+    margin-left: 0;
   }
   .tour-image {
     max-width: 100%;
