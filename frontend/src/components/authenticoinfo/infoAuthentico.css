@@ -1,0 +1,83 @@
+.authentico-card {
+    background-color: #908b84;
+    border-radius: 16px;
+    padding: 20px;
+    max-width: 350px;  
+    max-height: fit-content; 
+    font-family: 'Segoe UI', sans-serif;
+    color: #12130F;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .authentico-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 15px;
+  }
+  
+  .authentico-info {
+    text-align: left;
+  }
+  
+  .auth-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .auth-description p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  
+  .location,
+  .since {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  
+  .material-symbols-outlined {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .location p,
+  .since p {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1260px) {
+    .authentico-card {
+        display: none;
+      max-width: 90%;
+      padding: 16px;
+    }
+  
+    .authentico-img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .auth-title {
+      font-size: 1rem;
+    }
+  
+    .auth-description p,
+    .location p,
+    .since p {
+      font-size: 0.88rem;
+    }
+  
+    .material-symbols-outlined {
+      font-size: 1rem;
+    }
+  }
+  
