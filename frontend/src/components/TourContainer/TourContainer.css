@@ -12,7 +12,9 @@
   margin-left: auto;
   position: relative; 
 }
-
+.link{
+  display: none;
+}
 .tour-image {
   max-width: 40%;
   flex: 1;

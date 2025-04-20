@@ -60,14 +60,21 @@ const LogIn = () => {
     </div>
 
     <div className="input-group-login">
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Enter your password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+    <label>Password:</label>
+  <div className="password-wrapper">
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+    />
+    <span
+      className="toggle-password"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+      {showPassword ? "visibility_off" : "visibility"}
+    </span>
+  </div>
     </div>
 
       <div className="button-group-login">

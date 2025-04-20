@@ -50,31 +50,45 @@
 }
 @media (max-width:1200px){
   .summarize-container{
-    max-width: 100%;
+    padding: 10px;
+    max-width: 80%;
     margin-left: 0;
     justify-content: center;
     align-items: center;
+    align-self: center;
+  }
+  .summary-header{
+    font-size: 1.5rem;
+    align-self: center;
+    text-align: center;
   }
 }
+
 @media (max-width: 600px) {
   .summarize-container {
     padding: 10px;
     max-width: 100%;
+    margin: 0 auto; /* Centra horizontalmente */
   }
+
   .summary-header {
     font-size: 1.5rem;
     align-self: center;
+    text-align: center; /* Alinea el texto si es necesario */
   }
 
   .average-score {
     font-size: 1.5rem;
+    text-align: center;
   }
 
   .rating-row span {
     font-size: 0.85rem;
+    align-self: flex-start;
   }
 
   .bar-background {
     height: 8px;
   }
 }
+

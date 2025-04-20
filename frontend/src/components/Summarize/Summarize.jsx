@@ -38,7 +38,7 @@ const Summarize = ({ average, comment, califications }) => {
         <div className="average-score">{average}</div>
         <div className="comment-count">{comment} comments</div>
       </div>
-
+        
       <div className="rating-row">
         <span>Excellent ({excelent})</span>
         <div className="bar-background">
