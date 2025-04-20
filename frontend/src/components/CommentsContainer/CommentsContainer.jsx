@@ -22,7 +22,7 @@ const CommentsContainer = ({ tour }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/comments/${tour}`);
+        const response = await fetch(`https://backend-django-n4l6.onrender.com/api/comments/${tour}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -87,7 +87,7 @@ const CommentsContainer = ({ tour }) => {
               key={comment.id}
               title={comment.title}
               text={comment.text}
-              profile_pic={`http://127.0.0.1:8000/${comment.user.profile.profile_pic}`}
+              profile_pic={`https://backend-django-n4l6.onrender.com/${comment.user.profile.profile_pic}`}
               author={comment.user.username}
               characteristics={comment.characterisitcs}
               rating={comment.calification}

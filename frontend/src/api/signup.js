@@ -1,5 +1,5 @@
 export async function signup(username, password) {
-    const response = await fetch("http://127.0.0.1:8000/api/user/create/", {
+    const response = await fetch("https://backend-django-n4l6.onrender.com/api/user/create/", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
