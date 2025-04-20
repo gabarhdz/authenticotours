@@ -59,43 +59,42 @@ const CommentsContainer = ({ tour }) => {
   return (
     <div id="comments-section">
       <p id='comments-title'>Comments</p>
-      <hr /> 
-
-      <p>Publish a comment!</p>
-      {
-        tourComments.length !== 0 ?
-        <>
-          <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
-          <button onClick={showpublish}>
-            <span className='comment-button'>Publish</span>
-          </button>
-          <div className='commentInput-container'>
-            <CommentInput tour={tour}/>
+      <hr />
+      <div className='comments-container'>
+        {tourComments.length !== 0 ?
+          <div className='summarize-container'>
+            <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
+            <div className='publish-section'>
+              <p>Publish a comment!</p>
+              <button onClick={showpublish}>
+                <span className='comment-button'>Publish</span>
+              </button>
+            </div>
+            <div className='commentInput-container'>
+              <CommentInput tour={tour}/>
+            </div>
+            <div className='signupInput-container'>
+              <SignUp />
+            </div>
+            <div className='loginInput-container'>
+              <LogIn />
+            </div>
           </div>
-          <div className='signupInput-container'>
-            <SignUp />
-          </div>
-          <div className='loginInput-container'>
-            <LogIn />
-          </div>
-        </>
-        : null
-      }
-      <span className='comments-container'>
+        : null}
         <span className='comment'>
           {tourComments.map((comment) => (
             <Comments 
               key={comment.id}
-              title={comment.title} 
-              text={comment.text} 
-              profile_pic={`http://127.0.0.1:8000/${comment.user.profile.profile_pic}`} 
-              author={comment.user.username} 
+              title={comment.title}
+              text={comment.text}
+              profile_pic={`http://127.0.0.1:8000/${comment.user.profile.profile_pic}`}
+              author={comment.user.username}
               characteristics={comment.characterisitcs}
               rating={comment.calification}
             />
           ))}
         </span>
-      </span>
+      </div>
     </div>
   );
 };
