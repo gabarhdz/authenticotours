@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: backend-django
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn authenticotours.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: "authenticotours.settings"
