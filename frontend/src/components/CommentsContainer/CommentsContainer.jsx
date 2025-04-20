@@ -22,7 +22,7 @@ const CommentsContainer = ({ tour }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://backend-django-n4l6.onrender.com/api/comments/${tour}`);
+        const response = await fetch(`http://127.0.0.1:8000/api/comments/${tour}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -61,7 +61,6 @@ const CommentsContainer = ({ tour }) => {
       <p id='comments-title'>Comments</p>
       <hr />
       <div className='comments-container'>
-        {tourComments.length !== 0 ?
           <div className='summarize-container'>
             <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
             <div className='publish-section'>
@@ -80,7 +79,7 @@ const CommentsContainer = ({ tour }) => {
               <LogIn />
             </div>
           </div>
-        : null}
+
         <span className='comment'>
           {tourComments.map((comment) => (
             <Comments 
