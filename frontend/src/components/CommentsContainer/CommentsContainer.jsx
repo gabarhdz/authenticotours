@@ -7,7 +7,8 @@ import CommentInput from '../CommentInput/CommentInput';
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
 
-const CommentsContainer = ({ tour }) => {
+const CommentsContainer = ({ tour}) => {
+  console.log(tour);
   const [tourComments, setTourComments] = useState([]);
   const [token, setToken] = useState(null); 
   

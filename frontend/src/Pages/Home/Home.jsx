@@ -73,7 +73,7 @@ const Home = () => {
       })}
       </div>
       </div>
-      <CommentsContainer tour={'index'} />
+      <CommentsContainer tour={'index'}/>
       <Footer />
     </>
   );
