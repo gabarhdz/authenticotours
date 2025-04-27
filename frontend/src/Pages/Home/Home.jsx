@@ -6,7 +6,7 @@ import ScrollDown from '../../components/scrolldown/scrollDown';
 import Authentico from '../../components/authenticoinfo/infoAuthentico';
 import TourContainer from '../../components/TourContainer/TourContainer';
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer';
-import Footer from '../../components/footer/footer';
+import Footer from '../../components/Footer/Footer';
 import './Home.css';
 import { tours as toursAPI } from '../../api/tours';
 
