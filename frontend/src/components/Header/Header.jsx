@@ -1,4 +1,5 @@
 import {React,useState,useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
@@ -24,7 +25,7 @@ function showSidebar() {
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <nav>
         <ul>
-            <li><a href="#">Authenticotours</a></li>
+            <li><Link to={'/'}>MarizioTours</Link></li>
             <li className='hideOnMobile'><a href="#tours">Activities</a></li>
             <li className='hideOnMobile'><a href="#about">About</a></li>
             <li className='hideOnMobile'><a href="#comments-section">Reviews</a></li>
