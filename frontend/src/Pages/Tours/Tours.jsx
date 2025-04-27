@@ -34,6 +34,7 @@ const Tours = () => {
         <h1>{tourData ? tourData.tour_name : 'Cargando...'}</h1>
       </div>
       <hr />
+      <span>
       {tourData ? (
         <SpecificInfoTour
           detailed_description={tourData.detailed_description}
@@ -44,6 +45,8 @@ const Tours = () => {
       ) : (
         <p>Cargando información del tour...</p>
       )}
+      </span>
+      
       <Footer />
     </>
   );

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import './SpecificInfoTour.css'
 
 const SpecificInfoTour = ({ detailed_description, itinerary, tour_description, recommendations }) => {
   const [content, setContent] = useState(tour_description);
-  const [active, setActive] = useState(1); // Cambié a 1 para que empiece con general description
+  const [active, setActive] = useState(1); 
 
   useEffect(() => {
     if (active === 1) {
@@ -19,16 +20,28 @@ const SpecificInfoTour = ({ detailed_description, itinerary, tour_description, r
   return (
     <div className="specificInfoTour">
       <div className='tourCategorieContainer'>
-        <button onClick={() => setActive(1)}>
+        <button 
+          onClick={() => setActive(1)} 
+          className={`tourButton ${active === 1 ? 'activeButton' : ''}`}
+        >
           General Description
         </button>
-        <button onClick={() => setActive(2)}>
+        <button 
+          onClick={() => setActive(2)} 
+          className={`tourButton ${active === 2 ? 'activeButton' : ''}`}
+        >
           Detailed Description
         </button>
-        <button onClick={() => setActive(3)}>
+        <button 
+          onClick={() => setActive(3)} 
+          className={`tourButton ${active === 3 ? 'activeButton' : ''}`}
+        >
           Itinerary
         </button>
-        <button onClick={() => setActive(4)}>
+        <button 
+          onClick={() => setActive(4)} 
+          className={`tourButton ${active === 4 ? 'activeButton' : ''}`}
+        >
           Recommendations
         </button>
       </div>
@@ -42,7 +55,8 @@ const SpecificInfoTour = ({ detailed_description, itinerary, tour_description, r
         )}
       </div>
     </div>
-  )
+  );
+  
 }
 
 export default SpecificInfoTour;

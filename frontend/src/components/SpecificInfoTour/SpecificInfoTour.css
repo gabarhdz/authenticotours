@@ -1,4 +1,51 @@
 .specificInfoTour{
     background-color: #d9d9d9;
-    border-radius: 5px;
+    border-radius: 15px;
+    min-height: 350px;
+    width: 65%;
+    color: #8F8073;
+    margin: auto;
+    margin-bottom: 30px;
+}
+.tourCategorieContainer{
+    display: flex;
+    flex-direction: block;
+    align-items: center;
+    justify-content: center;
+}
+.tourCategorieContainer button:hover{
+    transition: ease-in-out 0.3s;
+    background-color: #8F8073;
+    color: white;
+}
+
+.tourButton {
+    background-color: #d9d9d9;
+    color: #8F8073;
+    padding: 15px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /*margin: 4px 2px;*/
+    cursor: pointer;
+    width: 25%;
+  }
+  
+  .activeButton {
+    background-color: #8F8073;
+    color: white;
+  }
+  
+.tourCategorieContainer button:first-child{border-top-left-radius: 15px;}
+.tourCategorieContainer button:last-child{border-top-right-radius: 15px;}
+
+.infoContainer{
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
