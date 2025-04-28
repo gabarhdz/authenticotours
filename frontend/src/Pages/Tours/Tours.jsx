@@ -6,6 +6,7 @@ import './Tours.css';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import SpecificInfoTour from '../../components/SpecificInfoTour/SpecificInfoTour';
+import PhotosContainer from '../../components/PhotosContainer/PhotosContainer';
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer';
 
 const Tours = () => {
@@ -48,6 +49,9 @@ const Tours = () => {
       ) : (
         <p>Cargando información del tour...</p>
       )}
+      </div>
+      <div>
+        <PhotosContainer photos={tourData ? tourData.photos : []} />
       </div>
       <div>
         {commentName ? (
