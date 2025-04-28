@@ -1,7 +1,8 @@
 import React from 'react'
 import './PhotosContainer.css'
+import WhatsApp from '../logos/whastapp'
 
-const PhotosContainer = ({photos}) => {
+const PhotosContainer = ({photos,tour_name}) => {
 
   return (
     <span className='photos-container-main'>
@@ -18,6 +19,7 @@ const PhotosContainer = ({photos}) => {
         ) : (
           <p>No hay fotos disponibles para este tour.</p>
         )}
+        <button><div className="whats"><WhatsApp /></div><a target='_blank' href={`https://wa.me/50661392424?text=Hi,%20I%20saw%20in%20autenticotours.com%20the%20${tour_name}%20I%20want%20to%20know%20more%20about%20it!,%20could%20you%20send%20me%20more%20info?`}>Contact me</a></button>
     </span>
   )
 }
