@@ -145,3 +145,11 @@ class get_media(APIView):
             return JsonResponse({"error": "No media found for the given alt"}, status=404)
         serializer = MediaSerializer(media,many=True)
         return JsonResponse(serializer.data,safe=False)
+
+class get_all_media(APIView):
+    http_method_names = ["get"]
+    permission_classes = [] 
+    def get(self,request):
+        media = Media.objects.all()
+        serializer = MediaSerializer(media,many=True)
+        return JsonResponse(serializer.data,safe=False)

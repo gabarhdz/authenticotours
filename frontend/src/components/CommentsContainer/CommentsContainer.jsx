@@ -7,7 +7,8 @@ import CommentInput from '../CommentInput/CommentInput';
 import SignUp from '../SignUp/SignUp';
 import LogIn from '../LogIn/LogIn';
 
-const CommentsContainer = ({ tour }) => {
+const CommentsContainer = ({ tour}) => {
+  console.log(tour);
   const [tourComments, setTourComments] = useState([]);
   const [token, setToken] = useState(null); 
   
@@ -61,7 +62,6 @@ const CommentsContainer = ({ tour }) => {
       <p id='comments-title'>Comments</p>
       <hr />
       <div className='comments-container'>
-        {tourComments.length !== 0 ?
           <div className='summarize-container'>
             <Summarize average={computedAverage} comment={tourComments.length} califications={calificationsTotal} />
             <div className='publish-section'>
@@ -80,14 +80,14 @@ const CommentsContainer = ({ tour }) => {
               <LogIn />
             </div>
           </div>
-        : null}
+
         <span className='comment'>
           {tourComments.map((comment) => (
             <Comments 
               key={comment.id}
               title={comment.title}
               text={comment.text}
-              profile_pic={`http://127.0.0.1:8000/${comment.user.profile.profile_pic}`}
+              profile_pic={`http://127.0.0.1:8000${comment.user.profile.profile_pic}`}
               author={comment.user.username}
               characteristics={comment.characterisitcs}
               rating={comment.calification}

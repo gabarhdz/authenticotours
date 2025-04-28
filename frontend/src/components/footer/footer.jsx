@@ -1,5 +1,5 @@
 import React from 'react'
-import './footer.css'
+import './Footer.css'
 import Facebook from '../logos/facebook'
 import Instagram from '../logos/instagram'
 import WhatsApp from '../logos/whastapp'

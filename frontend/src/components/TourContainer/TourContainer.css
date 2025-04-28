@@ -13,7 +13,7 @@
   position: relative; 
 }
 .link{
-  display: none;
+  display: block;
 }
 .tour-image {
   max-width: 40%;

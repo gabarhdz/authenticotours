@@ -44,6 +44,10 @@
     visibility: visible;
 }
 
+.swiper-pagination-bullet{
+    display: none;
+}
+
 
 @media (max-width: 1024px) {
     .carousel-container {

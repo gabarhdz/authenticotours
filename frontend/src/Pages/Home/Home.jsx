@@ -6,7 +6,7 @@ import ScrollDown from '../../components/scrolldown/scrollDown';
 import Authentico from '../../components/authenticoinfo/infoAuthentico';
 import TourContainer from '../../components/TourContainer/TourContainer';
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer';
-import Footer from '../../components/footer/footer';
+import Footer from '../../components/Footer/Footer';
 import './Home.css';
 import { tours as toursAPI } from '../../api/tours';
 
@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/media/index');
+        const response = await fetch('http://127.0.0.1:8000/api/media/');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -47,7 +47,7 @@ const Home = () => {
       <Header />
       <div className='inicio-pagina'>
         <div className="info"><HeaderInfo /></div>
-      <div className="carrusel"><Carrousel images={urls} /></div>
+      <div className="carrusel"><Carrousel  images={urls} /></div>
       </div>
       <ScrollDown />
       <div className="infotours" id="about">
@@ -73,7 +73,7 @@ const Home = () => {
       })}
       </div>
       </div>
-      <CommentsContainer tour={'index'} />
+      <CommentsContainer tour={'index'}/>
       <Footer />
     </>
   );
