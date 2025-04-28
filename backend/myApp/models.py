@@ -10,7 +10,7 @@ class Media(models.Model):
 
 
 def user_directory_path(instance, filename):
-    return f'./profile_pics/{instance.user.username}/{filename}'
+    return f'{instance.user.username}/{filename}'
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
