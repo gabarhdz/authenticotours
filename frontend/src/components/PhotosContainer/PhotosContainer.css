@@ -57,7 +57,34 @@
     opacity: 1;
   }
   
-
+  button {
+    width: 80%;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center; 
+    background-color: #8FCB9B;
+    color: #12130F;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    white-space: nowrap;
+    margin:10px;
+  }
+  a{
+    text-decoration: none;
+    color: #12130F;
+    font-size: 0.9rem;
+  }
+  .whats {
+    font-size: 1.03rem;
+    display: flex;
+    align-items: center;
+  }
 
   @media (max-width: 768px) {
     .photos-container {
