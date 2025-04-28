@@ -51,7 +51,7 @@ const Tours = () => {
       )}
       </div>
       <div>
-        <PhotosContainer photos={tourData ? tourData.photos : []} />
+        <PhotosContainer photos={tourData ? tourData.photos : []} tour_name={tourData ? tourData.tour_name : ""}/>
       </div>
       <div>
         {commentName ? (
