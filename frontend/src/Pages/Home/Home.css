@@ -11,16 +11,20 @@
     max-width: 500px;
   }
   
-  .carrusel {
-    flex: 1;
-    margin: 45px;
-  }
+.carrusel {
+  flex: 1;
+  display: flex; 
+  max-width: 700px;
+  margin-left: auto;
+}
+
   .infotours {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 20px;
     padding: 20px;
+
   }
   
   .authentico {
@@ -90,4 +94,9 @@
     margin-bottom: 30px;
   }
 }
- 
+ @media (max-width: 630px) {
+      .inicio-pagina {
+      margin: 0;
+      padding: 0;
+    }
+ }

@@ -50,7 +50,7 @@ const handleCheckboxChange = (id) => {
       <div className='comment-input-container'>
       <div className='closeComment' onClick={hideComment}><span class="material-symbols-outlined">close</span></div>
         <input type="text" placeholder="Title" className='comment-input' />
-        <input type="text" placeholder="Comment" className='title-input' />
+        <textarea type="text" placeholder="Comment" className='title-input' />
 
         <div className="checkbox-group">
           <p>Caracteristics:</p>

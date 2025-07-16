@@ -7,7 +7,7 @@
     font-family: 'Segoe UI', sans-serif;
     color: #12130F;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin: 20px;
   }
   
   .authentico-img {
@@ -55,30 +55,34 @@
   }
   
   /* Responsive */
+    @media (max-width: 1490px) {
+    .authentico-card {
+        max-width: 300px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+    .authentico-img {
+        width: 120px;
+        height: 120px;
+    }
+    .auth-title {
+        font-size: 1rem;
+    }
+    .auth-description p {
+        font-size: 0.75rem;
+    }
+    .location p,
+    .since p {
+        font-size: 0.8rem;
+    }
+    .material-symbols-outlined {
+        font-size: 1.1rem;
+    }
+  }
+    
   @media (max-width: 1260px) {
     .authentico-card {
         display: none;
-      max-width: 90%;
-      padding: 16px;
-    }
-  
-    .authentico-img {
-      width: 100px;
-      height: 100px;
-    }
-  
-    .auth-title {
-      font-size: 1rem;
-    }
-  
-    .auth-description p,
-    .location p,
-    .since p {
-      font-size: 0.88rem;
-    }
-  
-    .material-symbols-outlined {
-      font-size: 1rem;
     }
   }
   

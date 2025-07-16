@@ -5,13 +5,6 @@ import 'swiper/css/pagination';
 import { Pagination, Navigation } from 'swiper/modules';
 import './Carrousel.css';
 
-import atvImage from '../imagenes/atv.jpg';
-import fishingImage from '../imagenes/fishing 1.jpg';
-import waterfallImage from '../imagenes/water fall 11.jpg';
-
-const imagesc = [atvImage, fishingImage, waterfallImage];
-
-
 const Carrousel = ({images=imagesc}) => {
   return (
     <div className="carousel-container right-aligned">

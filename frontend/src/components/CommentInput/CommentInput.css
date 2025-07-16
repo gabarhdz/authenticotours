@@ -1,82 +1,166 @@
 .comment-input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    padding: 2rem;
-    background: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 90%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Fondo oscuro */
+.outclick {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 900;
+}
+
+/* Botón de cerrar */
+.closeComment {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  color: #333;
+  font-size: 24px;
+  z-index: 1001;
+  background: none;
+  border: none;
+}
+
+/* Input de título */
+.comment-input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1rem 0;
+}
+
+/* Área de texto */
+.title-input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  height: 110px;
+  max-height: 150px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+/* Grupo de checkboxes */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.checkbox-group p {
+  width: 100%;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Estilo clásico para características */
+.checkbox-option {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background 0.2s ease;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+.checkbox-option:hover {
+  background: #e0f7fa;
+}
+
+.checkbox-option input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+/* Grupo del slider */
+.range-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.calificacion-input {
+  width: 100%;
+}
+
+/* Botón */
+button[type="submit"] {
+  width: fit-content;
+  min-width: 120px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #2c7be5, #1a5bb8);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  align-self: flex-start;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #1a5bb8, #1451a0);
+  transform: scale(1.03);
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .comment-input-container {
+    padding: 20px 16px;
+    gap: 14px;
   }
-  
-  .comment-input,
+
   .title-input {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    height: 120px;
   }
-  
-  .checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
+
   .checkbox-option {
-    background: #fff;
-    border: 1px solid #ddd;
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: background 0.2s ease;
+    flex: 1 1 45%; /* caben dos por fila */
   }
-  
-  .checkbox-option:hover {
-    background: #e0f7fa;
-  }
-  
-  .range-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  
-  .calificacion-input {
-    width: 100%;
-  }
-  
+
   button[type="submit"] {
-    padding: 10px 16px;
-    background-color: #2c7be5;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s ease;
+    width: 100%;
+    align-self: center;
+    text-align: center;
   }
-  
-  button[type="submit"]:hover {
-    background-color: #1a5bb8;
-  }
-  .closeComment {
-    position: static;
-    margin-left: auto;
-    font-size: 1.5rem;
-    color: #333;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  .outclick {
-    position: static;
-    background: rgba(0, 0, 0, 0.1);
-    z-index: auto;
-  }
+}
+

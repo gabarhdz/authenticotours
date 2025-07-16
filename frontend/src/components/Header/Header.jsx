@@ -48,7 +48,7 @@ const Header = () => {
           <li className="hideOnMobile"><a href="#tours">Activities</a></li>
           <li className="hideOnMobile"><a href="#about">About</a></li>
           <li className="hideOnMobile"><a href="#comments-section">Reviews</a></li>
-          <li className="hideOnMobile"><a href="#">Contact</a></li>
+          <li className="hideOnMobile"><a href={`https://wa.me/50661392424?text=Hi,%20could%20you%20send%20me%20more%20info%20about%20the%20the%20tours?`}>Contact</a></li>
           <li className="hideOnMobile"><a href="#">EN/ES</a></li>
           <li className="hideOnMobile">
             <a
@@ -70,7 +70,7 @@ const Header = () => {
           <li><a href="#tours">Activities</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#comments-section">Reviews</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href={`https://wa.me/50661392424?text=Hi,%20could%20you%20send%20me%20more%20info%20about%20the%20the%20tours?`}>Contact</a></li>
           <li><a href="#">EN/ES</a></li>
           <li className="login">
           <a

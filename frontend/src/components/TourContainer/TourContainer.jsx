@@ -32,7 +32,16 @@ const TourContainer = ({photos,tour_name,tour_description,min_people,includes,du
           <span>Book now!</span>
         </p>
         <div className='link'><Link  to={`/tour/${slug}`} className="tour-button">More Info here!</Link></div>
-        <button><div className="whats"><WhatsApp /></div><a target='_blank' href={`https://wa.me/50661392424?text=Hi,%20I%20saw%20in%20autenticotours.com%20the%20${tour_name}%20I%20want%20to%20know%20more%20about%20it!,%20could%20you%20send%20me%20more%20info?`}>Contact me</a></button>
+        <button
+        onClick={() => {
+       window.open(
+        `https://wa.me/50661392424?text=Hi,%20I%20saw%20in%20autenticotours.com%20the%20${tour_name}%20I%20want%20to%20know%20more%20about%20it!,%20could%20you%20send%20me%20more%20info?`,
+        '_blank'
+        );
+        }}>
+        <div className="whats"><WhatsApp /></div>
+          Contact me
+        </button>
       </div>
     </div>
   );

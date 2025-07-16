@@ -9,7 +9,7 @@ const Footer = () => {
       <footer className="footer">
         <div className="footer-content">
           <div className="footer-left">
-            <span className="brand">AuthenticoTours ©2025</span>
+            <span className="brand">MarizioTours ©2025</span>
           </div>
   
           <div className="footer-right">
