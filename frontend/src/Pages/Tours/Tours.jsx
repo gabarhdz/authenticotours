@@ -38,7 +38,11 @@ const Tours = () => {
         <h1>{tourData ? tourData.tour_name : 'Cargando...'}</h1>
       </div>
       <hr />
+      <div className='tours-full-info'>
       <div>
+        <PhotosContainer photos={tourData ? tourData.photos : []} tour_name={tourData ? tourData.tour_name : ""}/>
+      </div>
+            <div>
       {tourData ? (
         <SpecificInfoTour
           detailed_description={tourData.detailed_description}
@@ -50,8 +54,6 @@ const Tours = () => {
         <p>Cargando información del tour...</p>
       )}
       </div>
-      <div>
-        <PhotosContainer photos={tourData ? tourData.photos : []} tour_name={tourData ? tourData.tour_name : ""}/>
       </div>
       <div>
         {commentName ? (

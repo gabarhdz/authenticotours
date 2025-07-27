@@ -1,129 +1,124 @@
 .container {
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 15px;
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Título principal */
+.title {
+  text-align: left;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #000;
+}
+
+/* Subtítulo */
+.subtitle {
+  text-align: left;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 0.8rem;
+}
+
+/* Ubicación */
+.container h5 {
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+#tours-infoHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Tarjeta con enlace a tours */
+.some-tours {
+  background-color: #dcdcdc;
+  padding: 14px 20px;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #333;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.some-tours:hover {
+  background-color: #c0c0c0;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.some-tours a {
+  text-decoration: none;
+  color: #12130F;
+  font-weight: 500;
+}
+
+/* Botón de WhatsApp */
+#tours-infoHeader .whatsapp-button {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background-color: #8FCB9B;
+  color: #12130F;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+#tours-infoHeader .whatsapp-button:hover {
+  background-color: #5B9279;
+}
+
+.whats {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
   }
-  
-  /* Título principal */
+
   .title {
-    text-align: left;
-    font-size: 2rem;
-    font-weight: 500 ;
-    margin-bottom: 0.2rem;
-    color: #000;
+    font-size: 1.9rem;
   }
-  
 
   .subtitle {
-    text-align: left;
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #444;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
   }
-  
+
   .container h5 {
-    text-align: left;
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
   }
-  
-  #tours-infoHeader {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
+
   .some-tours {
-    background-color: #dcdcdc;
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: left;
-    font-size: 0.95rem;
-    color: #333;
-    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+    font-size: 0.9rem;
+    padding: 12px 16px;
   }
-  .some-tours:hover{
-    background-color: #c0c0c0;
-    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
 
-  .some-tours a {
-    text-decoration: none;
-    color: #12130F;
-    font-weight: 500;
-  }
-  
-
-  #tours-infoHeader button {
-    align-self: flex-start;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 8px 14px;
+  #tours-infoHeader .whatsapp-button {
     font-size: 0.85rem;
-    font-weight: 500;
-    background-color: #8FCB9B;
-    color: #12130F;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 6px 12px;
+    border-radius: 6px;
   }
-  
-  .whats {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-  }
-  
-  #tours-infoHeader button a {
-    text-decoration: none;
-    color: #12130F;
-  }
-  
-  #tours-infoHeader button:hover {
-    background-color: #5B9279;
-  }
-  
-
-  @media (max-width: 600px) {
-    .container{
-      padding: 10px;
-      margin: 10px;
-    }
-    .title {
-      font-size: 2rem;
-      font-weight: 500;
-    }
-  
-    .subtitle {
-      font-size: 1.2rem;
-    }
-  
-    .container h5 {
-      font-size: 0.85rem;
-    }
-  
-    .some-tours {
-      font-size: 0.9rem;
-      padding: 12px 16px;
-    }
-  
-    #tours-infoHeader button {
-      font-size: 0.78rem;
-      padding: 6px 12px;
-      border-radius: 6px;
-    }
-  }
-  
+}

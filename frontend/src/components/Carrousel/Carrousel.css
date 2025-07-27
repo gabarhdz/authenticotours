@@ -5,7 +5,6 @@
     overflow: hidden;
     z-index: 0; 
     border-radius: 10px;
-    margin-left: auto;
 }
 
 
@@ -51,8 +50,8 @@
 
 @media (max-width: 1024px) {
     .carousel-container {
-        max-width: 80%;
-        margin: 20px auto; /* Centrar en tablets */
+        margin: 0 auto;
+        margin-left: 1rem;
     }
 
 }
