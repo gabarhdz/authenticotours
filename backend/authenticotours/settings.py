@@ -39,9 +39,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'profile_pics')
 MEDIA_URL = '/profile_pics/'
+ALLOWED_HOSTS = ['*']
 
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
