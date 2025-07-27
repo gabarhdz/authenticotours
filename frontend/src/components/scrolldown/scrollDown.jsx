@@ -10,7 +10,7 @@ const ScrollDown = () => {
         <span></span>
         <span></span>
       </div>
-      <p className="subtitle-scroll">Tours and experiences of AuthenTicoTours</p>
+      <p className="subtitle-scroll">Tours and experiences of AutenTicoTours</p>
     </div>
   )
 }
