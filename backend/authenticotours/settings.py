@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from datetime import datetime, timedelta
+import pprint
 import os
 from dotenv import load_dotenv
 
@@ -30,7 +31,7 @@ SECRET_KEY ='django-insecure-w#cc1=@n^w7mf4j5w9(-dm=c2s%q_yert=s(_@r2^gg-s7_ne)'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
@@ -130,6 +131,9 @@ DATABASES = {
         },
     }
 }
+
+
+pprint.pprint(DATABASES)
 
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['*']
