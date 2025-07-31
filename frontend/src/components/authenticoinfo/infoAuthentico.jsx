@@ -12,7 +12,7 @@ const Authentico = () => {
 
         <p className="auth-title">About:</p>
         <div className="auth-description">
-          <p>Authentico Tours is a family business that offers personalized tours in Costa Rica. 
+          <p>Autentico Tours is a family business that offers personalized tours in Costa Rica. 
             We are committed to providing our clients with the best experience possible,
             and we take pride in our attention to detail and customer service.</p>
         </div>
