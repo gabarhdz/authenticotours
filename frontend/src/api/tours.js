@@ -1,5 +1,5 @@
 export async function tours() {
-    const response = await fetch("http://127.0.0.1:8000/api/tours/", {
+    const response = await fetch("https://authenticotours-backend-853118647724.us-central1.run.app/api/tours/", {
         method: "GET",
         headers: {
         "Content-Type": "application/json",

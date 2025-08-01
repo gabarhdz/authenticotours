@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/media/');
+        const response = await fetch('https://authenticotours-backend-853118647724.us-central1.run.app/api/media/');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
