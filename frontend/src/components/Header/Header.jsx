@@ -44,7 +44,7 @@ const Header = () => {
       />
       <nav>
         <ul>
-          <li><Link to="/">MarizioTours</Link></li>
+          <li><Link to="/">Autenticotours</Link></li>
           <li className="hideOnMobile"><a href="#tours">Activities</a></li>
           <li className="hideOnMobile"><a href="#about">About</a></li>
           <li className="hideOnMobile"><a href="#comments-section">Reviews</a></li>
@@ -66,7 +66,7 @@ const Header = () => {
           <li onClick={hideSidebar}>
             <a href="#"><span className="material-symbols-outlined">close</span></a>
           </li>
-          <li><a href="#">MarizioTours</a></li>
+          <li><a href="#">Autenticotours</a></li>
           <li><a href="#tours">Activities</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#comments-section">Reviews</a></li>

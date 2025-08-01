@@ -1,22 +1,34 @@
-# Imagen base con Python
-FROM python:3.10-slim
+FROM python:3.11-slim
 
-# Variables para evitar archivos .pyc y mostrar logs
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+# 🛠️ Prepara entorno base de apt antes de instalar cualquier cosa
+RUN apt-get update && apt-get install -y \
+    gcc \
+    build-essential \
+    libmariadb-dev \
+    default-libmysqlclient-dev \
+    curl \
+    netcat-openbsd \
+    apt-utils \
+    ca-certificates \
+    pkg-config \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# Establece la carpeta de trabajo dentro del contenedor
+# 🐍 Variables para que Python no bufee output
+ENV PYTHONUNBUFFERED=1
+
+# Carpeta de trabajo
 WORKDIR /app
 
-# Instala dependencias
+# Copiar y cachear dependencias
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el resto del backend al contenedor
+# Copiar el resto de la app
 COPY . .
 
-# Recolecta archivos estáticos (si usás whitenoise)
-RUN python manage.py collectstatic --noinput
+# Puerto expuesto
+EXPOSE 8080
 
-# Ejecuta gunicorn apuntando a tu wsgi.py
-CMD ["gunicorn", "authenticotours.wsgi:application", "--bind", "0.0.0.0:8080"]
+# Comando de arranque con Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "authenticotours.wsgi:application"]
